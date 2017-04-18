@@ -10,15 +10,16 @@
       <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.js'></script>
       <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.css' rel='stylesheet' />
       <link rel="stylesheet" href="assets/css/main.css">
+      <script src='dogpatch.js'> </script>
       <style>
       .marker {
           border: none;
           cursor: pointer;
           height: 30px;
           width: 30px;
-          background-image: url(assets/img/Loc_One.png);
+       /*   background-image: url(assets/img/Loc_One.png);
           background-color: rgba(0, 0, 0, 0);
-          transform: translate(28px, 56px, 0);
+      */    transform: translate(28px, 56px, 0);
         }
 
       </style>
@@ -35,6 +36,7 @@
     <div id='map' class='map'> </div>
     
   <script>
+  var stores; 
   // This will let you use the .remove() function later on
   if (!('remove' in Element.prototype)) {
     Element.prototype.remove = function() {
@@ -60,7 +62,7 @@
     zoom: 15
   });
 
-  var stores = {
+ /* var stores = {
     "type": "FeatureCollection",
     "features": [ {
       "type": "Feature",
@@ -115,6 +117,8 @@
     }
       ]
     };
+*/
+
   // This adds the data to the map
   map.on('load', function (e) {
     // This is where your '.addLayer()' used to be, instead add only the source without styling a layer
@@ -132,10 +136,17 @@
   stores.features.forEach(function(marker, i) {
     // Create an img element for the marker
     var el = document.createElement('div');
-    el.id = "marker-" + i;
-    el.className = 'marker';
+      el.id = "marker-" + i;
+ //   el.className = 'marker';
     el.style.left='-15px';
     el.style.top='-46px';
+
+      el.className = 'marker';
+      el.style.backgroundImage = 'url(https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/Bar.png)';
+    //  el.style.backgroundImage = 'url(assets/img/markers/' + marker.properties.map_id + '.png)';
+  //  el.style.width = marker.properties.iconSize[0] + 'px';
+  //  el.style.height = marker.properties.iconSize[1] + 'px';
+
     // Add markers to the map at all points
     new mapboxgl.Marker(el)
         .setLngLat(marker.geometry.coordinates)
@@ -196,7 +207,7 @@
       link.href = '#';
       link.className = 'title';
       link.dataPosition = i;
-      link.innerHTML = prop.site + ' '+ prop.name;     
+      link.innerHTML = prop.map_id + ' '+ prop.name;     
       
       var details = listing.appendChild(document.createElement('div'));
       content = prop.address + '<br>you can eat and drink here';
