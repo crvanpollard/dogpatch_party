@@ -80,16 +80,13 @@
     // Create an img element for the marker
     var el = document.createElement('div');
       el.id = "marker-" + i;
- //   el.className = 'marker';
-    el.style.left='-15px';
-    el.style.top='-46px';
-
       el.className = 'marker';
+      el.style.left ='-15px';
+      el.style.top ='-46px';
+ 
       el.style.backgroundImage = 'url(https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/markers/'+marker.properties.MAP_ID + '.png)';
-    //  https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/markers/1.png
-    //  el.style.backgroundImage = 'url(assets/img/markers/' + marker.properties.map_id + '.png)';
-    el.style.width = '31px';
-    el.style.height ='31px';
+      el.style.width = '25px';
+      el.style.height ='25px';
 
     // Add markers to the map at all points
     new mapboxgl.Marker(el)
