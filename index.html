@@ -62,63 +62,6 @@
     zoom: 15
   });
 
- /* var stores = {
-    "type": "FeatureCollection",
-    "features": [ {
-      "type": "Feature",
-      "properties": {
-        "name": "Dogpatch Sallon",
-        "address": "2496 3rd St",
-        "city": "San Fransico",
-        "site": 1
-      },
-      "geometry": {
-        "coordinates": [
-          -122.387913,
-          37.764379
-        ],
-        "type": "Point"
-      },
-      "id": "e501f981d0d040ae1fc264b87c11dc73"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "site": 2,
-        "name": "Dogpatch Saloon",
-        "address": "2496 3rd St",
-        "city": "San Fransico"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.389507,
-          37.761406
-        ],
-        "type": "Point"
-      },
-      "id": "5d999b01295a0890379d1d84cc2000f1"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "site": 15,
-        "name": "Dogpatch Sallon",
-        "address": "2496 3rd St",
-        "city": "San Fransico"
-      },
-      "geometry": {
-        "coordinates": [
-          -122.39298,
-          37.757526
-        ],
-        "type": "Point"
-      },
-      "id": "b8208e06ad93d390cdd1360e36f82576"
-    }
-      ]
-    };
-*/
-
   // This adds the data to the map
   map.on('load', function (e) {
     // This is where your '.addLayer()' used to be, instead add only the source without styling a layer
@@ -142,10 +85,11 @@
     el.style.top='-46px';
 
       el.className = 'marker';
-      el.style.backgroundImage = 'url(https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/Bar.png)';
+      el.style.backgroundImage = 'url(https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/markers/'+marker.properties.MAP_ID + '.png)';
+    //  https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/markers/1.png
     //  el.style.backgroundImage = 'url(assets/img/markers/' + marker.properties.map_id + '.png)';
-  //  el.style.width = marker.properties.iconSize[0] + 'px';
-  //  el.style.height = marker.properties.iconSize[1] + 'px';
+    el.style.width = '31px';
+    el.style.height ='31px';
 
     // Add markers to the map at all points
     new mapboxgl.Marker(el)
