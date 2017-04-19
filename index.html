@@ -128,11 +128,10 @@
 
     var popup = new mapboxgl.Popup({closeOnClick: false})
           .setLngLat(currentFeature.geometry.coordinates)
-          .setHTML('<h3>Grub & SIP</h3>' + 
-            '<h4>' + currentFeature.properties.address + '</h4>')
+          .setHTML('<h3>'+currentFeature.properties.Name +'</h3>' + 
+            '<h4>' + currentFeature.properties.Address + '</h4>')
           .addTo(map);
   }
- 
 
   function buildLocationList(data) {
     for (i = 0; i < data.features.length; i++) {
@@ -148,19 +147,16 @@
       link.href = '#';
       link.className = 'title';
       link.dataPosition = i;
-      link.innerHTML = prop.map_id + ' '+ prop.name;     
+      link.innerHTML = prop.MAP_ID + ' '+ prop.Name;     
       
       var details = listing.appendChild(document.createElement('div'));
-      content = prop.address + '<br>you can eat and drink here';
+      content = prop.Address + '<br>'+prop.Amenities;
 
       details.innerHTML = content;
     //  details.innerHTML = prop.city;
     //  if (prop.phone) {
     //    details.innerHTML += ' &middot; ' + prop.phoneFormatted;
     //  }
-
-
-
       link.addEventListener('click', function(e){
         // Update the currentFeature to the store associated with the clicked link
         var clickedListing = data.features[this.dataPosition];
@@ -179,8 +175,6 @@
         }
         this.parentNode.classList.add('active');
       });
-
-
     }
   }
 
