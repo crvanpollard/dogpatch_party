@@ -108,11 +108,17 @@
   function flyToStore(currentFeature) {
     map.flyTo({
         center: currentFeature.geometry.coordinates,
-        zoom: 15
+        zoom: 16
       }); 
   }
 
   function createPopUp(currentFeature) {
+  /*  if (currentFeature.properties.MAP_ID < 10) {
+          alert("Under 10");
+    } else {
+          alert("Over 10");
+      } */
+
     var popUps = document.getElementsByClassName('mapboxgl-popup');
     if (popUps[0]) popUps[0].remove();
 
@@ -141,7 +147,20 @@
       
       var details = listing.appendChild(document.createElement('div'));
      // content = prop.Address + '<br>'+prop.Amenities;
-      content = '&nbsp &nbsp &nbsp &nbsp &nbsp ' + prop.Address;
+      
+      if (prop.ADA_WC ==='no'){ var WC = '';}
+      else { var WC =  '<img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_wc.png" style="float:right;margin-top:-18px;">';}
+
+       if (prop.ADA_PARK ==='no'){ var Parking = '';}
+      else { var Parking =  '<img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_parking.png" style="float:right;margin-top:-18px;">';}
+
+      content = '&nbsp &nbsp &nbsp &nbsp &nbsp ' 
+                + prop.Address 
+                + '<img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/'
+                + prop.AM_ICON 
+                + '.png" style="float:right;margin-top:-18px;">'
+                + WC
+                + Parking;
 
       details.innerHTML = content;
 
@@ -165,7 +184,7 @@
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
 
-map.on('click', function (e) {
+map.on('click', function (currentFeature) {
     var popUps = document.getElementsByClassName('mapboxgl-popup');
     if (popUps[0]) popUps[0].remove();
 });

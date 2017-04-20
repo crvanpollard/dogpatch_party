@@ -14,7 +14,7 @@ body {
 
         .sidebar {
           position:absolute;
-          width:33.3333%;
+          width:28%;
           height:100%;
           top:0;right:0;
           overflow:hidden;
@@ -26,8 +26,8 @@ body {
 
         .map {
           position:absolute;
-          right:33.3333%;
-          width:66.6666%;
+          right:28%;
+          width:72%;
           top:0;bottom:0;
         }
 
@@ -49,7 +49,7 @@ body {
         }
 
         .heading {
-          background:#ff6666;
+          background:#666666;
           border-bottom:1px solid #eee;
          /*  min-height:60px; */
           line-height:10px;
@@ -125,7 +125,7 @@ body {
           padding:1%;
         }
         .mapboxgl-popup-content h3 {
-          background:#ff6666;
+          background:#666666;
           color:#fff;
           margin:0;
           display:block;
