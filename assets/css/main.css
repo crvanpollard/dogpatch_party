@@ -51,8 +51,8 @@ body {
         .heading {
           background:#ff6666;
           border-bottom:1px solid #eee;
-          min-height:60px;
-          line-height:60px;
+         /*  min-height:60px; */
+          line-height:10px;
           padding:0 10px;
           color: white;
         }
@@ -60,13 +60,12 @@ body {
         .listings {
           height:100%;
           overflow:auto;
-          padding-bottom:60px;
+          padding-bottom:0px;
         }
-
         .listings .item {
           display:block;
           border-bottom:1px solid #eee;
-          padding:10px;
+          padding:6px;
           text-decoration:none;
         }
 

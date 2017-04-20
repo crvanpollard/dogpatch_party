@@ -10,7 +10,10 @@
       <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.js'></script>
       <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.css' rel='stylesheet' />
       <link rel="stylesheet" href="assets/css/main.css">
+      
+      <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
       <script src='dogpatch.js'> </script>
+
       <style>
       .marker {
           border: none;
@@ -28,7 +31,7 @@
   <body>
     <div class='sidebar'>
       <div class='heading'>
-        <img src='assets/img/logo.png' style='width:470px;margin: 0px 0px 0px -15px;'>
+       <!-- <img src='assets/img/logo.png' style='width:470px;margin: 0px 0px 0px -15px;'> -->
         <h1>Walk About Hub Loop</h1>
       </div>
     <div id='listings' class='listings'></div>
@@ -52,13 +55,9 @@
   var map = new mapboxgl.Map({
     // container id specified in the HTML
     container: 'map', 
-    // style URL
     style: 'mapbox://styles/mapbox/dark-v9', 
-  //  style: 'mapbox://styles/mapbox/satellite-v9',
-  //    style: 'mapbox://styles/crvanpollard/ciyd8fyqo008j2rqfku4qxcb9',
-    // initial position in [long, lat] format
+  //style: 'mapbox://styles/crvanpollard/ciyd8fyqo008j2rqfku4qxcb9',
     center: [-122.388,37.760], 
-    // initial zoom
     zoom: 15
   });
 
@@ -96,25 +95,19 @@
     el.addEventListener('click', function(e){
         // 1. Fly to the point
         flyToStore(marker);
-
         // 2. Close all other popups and display popup for clicked store
         createPopUp(marker);
-        
         // 3. Highlight listing in sidebar (and remove highlight for all other listings)
         var activeItem = document.getElementsByClassName('active');
-
         e.stopPropagation();
         if (activeItem[0]) {
            activeItem[0].classList.remove('active');
         }
-
         var listing = document.getElementById('listing-' + i);
         listing.classList.add('active');
-
     });
   });
 
-  
   function flyToStore(currentFeature) {
     map.flyTo({
         center: currentFeature.geometry.coordinates,
@@ -128,7 +121,7 @@
 
     var popup = new mapboxgl.Popup({closeOnClick: false})
           .setLngLat(currentFeature.geometry.coordinates)
-          .setHTML('<h3>'+currentFeature.properties.Name +'</h3>' + 
+          .setHTML('<h3>'+ currentFeature.properties.Name +'</h3>' + 
             '<h4>' + currentFeature.properties.Address + '</h4>')
           .addTo(map);
   }
@@ -147,29 +140,26 @@
       link.href = '#';
       link.className = 'title';
       link.dataPosition = i;
-      link.innerHTML = prop.MAP_ID + ' '+ prop.Name;     
+      link.innerHTML = '<img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/markers/'+ prop.MAP_ID + '.png" style="vertical-align: middle;margin-right:5px;">'+ prop.Name;     
       
       var details = listing.appendChild(document.createElement('div'));
-      content = prop.Address + '<br>'+prop.Amenities;
+     // content = prop.Address + '<br>'+prop.Amenities;
+      content = '&nbsp &nbsp &nbsp &nbsp &nbsp ' + prop.Address;
 
       details.innerHTML = content;
-    //  details.innerHTML = prop.city;
+
     //  if (prop.phone) {
     //    details.innerHTML += ' &middot; ' + prop.phoneFormatted;
     //  }
       link.addEventListener('click', function(e){
         // Update the currentFeature to the store associated with the clicked link
-        var clickedListing = data.features[this.dataPosition];
-        
+        var clickedListing = data.features[this.dataPosition]; 
         // 1. Fly to the point
         flyToStore(clickedListing);
-
         // 2. Close all other popups and display popup for clicked store
         createPopUp(clickedListing);
-        
         // 3. Highlight listing in sidebar (and remove highlight for all other listings)
         var activeItem = document.getElementsByClassName('active');
-
         if (activeItem[0]) {
            activeItem[0].classList.remove('active');
         }
@@ -186,7 +176,6 @@ map.on('click', function (e) {
     if (popUps[0]) popUps[0].remove();
 });
 
-  
     </script>
   </body>
 </html>
