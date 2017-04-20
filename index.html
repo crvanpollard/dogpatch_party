@@ -20,9 +20,7 @@
           cursor: pointer;
           height: 30px;
           width: 30px;
-       /*   background-image: url(assets/img/Loc_One.png);
-          background-color: rgba(0, 0, 0, 0);
-      */    transform: translate(28px, 56px, 0);
+          transform: translate(28px, 56px, 0);
         }
 
       </style>
@@ -31,7 +29,6 @@
   <body>
     <div class='sidebar'>
       <div class='heading'>
-       <!-- <img src='assets/img/logo.png' style='width:470px;margin: 0px 0px 0px -15px;'> -->
         <h1>Walk About Hub Loop</h1>
       </div>
     <div id='listings' class='listings'></div>
@@ -148,9 +145,6 @@
 
       details.innerHTML = content;
 
-    //  if (prop.phone) {
-    //    details.innerHTML += ' &middot; ' + prop.phoneFormatted;
-    //  }
       link.addEventListener('click', function(e){
         // Update the currentFeature to the store associated with the clicked link
         var clickedListing = data.features[this.dataPosition]; 
