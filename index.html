@@ -6,14 +6,14 @@
       <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
       <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
 
-
-      <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.js'></script>
       <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.css' rel='stylesheet' />
       <link rel="stylesheet" href="assets/css/main.css">
       
       <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-      <script src='dogpatch.js'> </script>
-
+      <script src="dogpatch.js"> </script>
+      <script src="assets/data/HUB.js"></script>
+   <!--    <script src="assets/data/loop.js"></script> -->
+      <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.js'></script>
       <style>
       .marker {
           border: none;
@@ -37,6 +37,8 @@
     
   <script>
   var stores; 
+  var HUB;
+  var zoomThreshold = 16;
   // This will let you use the .remove() function later on
   if (!('remove' in Element.prototype)) {
     Element.prototype.remove = function() {
@@ -57,6 +59,27 @@
     center: [-122.388,37.760], 
     zoom: 15
   });
+
+// add markers to map
+HUB.features.forEach(function(marker2) {
+    // create a DOM element for the marker
+    var el2 = document.createElement('div');
+    el2.className = 'marker2';
+    el2.style.backgroundImage = 'url(https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/'+marker2.properties.ICON + '.png)';
+    el2.style.width = '44px';
+    el2.style.height ='44px';
+
+
+    el2.addEventListener('click', function() {
+        window.alert(marker2.properties.message);
+    });
+
+    // add marker to map
+    new mapboxgl.Marker(el2)
+        .setLngLat(marker2.geometry.coordinates)
+        .addTo(map)
+   });     
+
 
   // This adds the data to the map
   map.on('load', function (e) {
@@ -182,11 +205,143 @@
   }
 
 // Add zoom and rotation controls to the map.
-map.addControl(new mapboxgl.NavigationControl());
+map.addControl(new mapboxgl.NavigationControl(),['top-left']);
+
 
 map.on('click', function (currentFeature) {
     var popUps = document.getElementsByClassName('mapboxgl-popup');
     if (popUps[0]) popUps[0].remove();
+});
+
+map.on('load', function () {
+
+    map.addLayer({
+        "id": "route",
+        "type": "line",
+      "maxzoom": zoomThreshold,
+        "source": {
+            "type": "geojson",
+            "data": {
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          [
+            -122.38871,
+            37.764269
+          ],
+          [
+            -122.38896,
+            37.767388
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "08edce8d4935d28010a3c78e762475dc"
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          [
+            -122.38855,
+            37.761702
+          ],
+          [
+            -122.390656,
+            37.761599
+          ],
+          [
+            -122.390285,
+            37.757775
+          ],
+          [
+            -122.388179,
+            37.757896
+          ],
+          [
+            -122.388534,
+            37.761711
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "1def62c0a8f23ce251c6e68d6ec4492a"
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          [
+            -122.388713,
+            37.764269
+          ],
+          [
+            -122.387268,
+            37.764341
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "8927bba22314d004c4932ba3ce92fe16"
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          [
+            -122.388179,
+            37.758017
+          ],
+          [
+            -122.385532,
+            37.75817
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "adb3dc9d1450d8d6719ec42079a1e7e9"
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          [
+            -122.388713,
+            37.764269
+          ],
+          [
+            -122.388615,
+            37.763088
+          ],
+          [
+            -122.388551,
+            37.761697
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "d9e41a3c51c2618bb4d7cb29ddf873a5"
+    }
+  ],
+  "type": "FeatureCollection"
+}
+        },
+        "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "paint": {
+            "line-color": "#66cccc",
+            "line-width": 3
+        }
+    });
 });
 
     </script>
