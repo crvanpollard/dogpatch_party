@@ -4,15 +4,19 @@
       <meta charset='utf-8' />
       <title>Dogpatch Bloack Party and Walk About</title>
       <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
       <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
 
       <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.css' rel='stylesheet' />
       <link rel="stylesheet" href="assets/css/main.css">
       
       <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-      <script src="dogpatch.js"> </script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <script src="assets/data/dogpatch.js"> </script>
       <script src="assets/data/HUB.js"></script>
-   <!--    <script src="assets/data/loop.js"></script> -->
       <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.js'></script>
       <style>
       .marker {
@@ -27,14 +31,87 @@
   </head>
   
   <body>
-    <div class='sidebar'>
-      <div class='heading'>
-        <h1>Walk About Hub Loop</h1>
+<!-- <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+              <span><a class="navbar-brand" href="http://www.dvrpc.org/" target="_blank"><img src="assets/img/ecity.png" alt="Effortless City" style="margin:-10px 10px -10px 0;"/></a>
+              </span>
+        </div>
       </div>
-    <div id='listings' class='listings'></div>
-    </div>
-    <div id='map' class='map'> </div>
-    
+</div>
+-->
+<!-- Start Main Body -->
+    <div id="container">
+      <div id="sidebar" class="col-sm-6">
+        <div id='map' class='map'></div>
+      </div>
+ 
+      <div id="sidebar2" class="col-sm-6">
+         <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="card">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_" href="#overlay-layers">Hype --- Upbeat Loop
+                                </a>
+                            </div>
+                            <div id="overlay-layers" class="panel-collapse collapse in">
+                                <div class="panel-body" style="padding: 0px 15px;">
+                                         <div class="col-sm-6">
+            <div class="panel panel-primary" id="cardpedpanel">
+            <div class="panel-heading" id="cardped"><img src="assets/img/grub.png" style="margin:0px 15px 0px 0px">Grub & Sip</div>
+            <div id='hype1' class='listings'></div>
+            </div>
+            </div>
+             <div class="col-sm-6" >
+            <div class="panel panel-primary" id="cardpedpanel2">
+            <div class="panel-heading" id="cardped"><img src="assets/img/shop.png" style="margin:0px 15px 0px 0px">Shop & Do</div>
+             <div id='hype2' class='listings'></div>
+            </div>
+            <div class="panel panel-primary" id="cardpedpanel">
+            <div class="panel-heading" id="cardped"><img src="assets/img/needs.png" style="margin:0px 15px 0px 0px">Needs & Wants</div>
+              <div id='hype3' class='listings'></div>
+            </div>
+            </div>
+                                </div>
+                            </div>
+          
+                        </div>
+                
+        </div>
+
+  
+
+        <div class="row" id="barcharts"> 
+            <div class="panel panel-primary" id="card2">
+            <div class="card-title">Stroll --- Relax Loop</div>
+            </div>
+
+            <div class="col-sm-6">
+            <div class="panel panel-primary" id="cardpedpanel">
+            <div class="panel-heading" id="cardped"><img src="assets/img/grub.png" style="margin:0px 15px 0px 0px">Grub & Sip</div>
+            <div id='stroll1' class='listings'></div>
+            </div>
+            </div>
+
+            <div class="col-sm-6" >
+            <div class="panel panel-primary" id="cardpedpanel2">
+            <div class="panel-heading" id="cardped"><img src="assets/img/shop.png" style="margin:0px 15px 0px 0px">Shop & Do</div>
+            <div id='stroll2' class='listings'></div>
+            </div>
+            <div class="panel panel-primary" id="cardpedpanel">
+            <div class="panel-heading" id="cardped"><img src="assets/img/needs.png" style="margin:0px 15px 0px 0px">Needs & Wants</div>
+            <div id='stroll3' class='listings'></div>
+            </div>
+            </div>
+      </div>
+
+
+
+      </div>  
+
+ </div>     
+
+<!-- End Main Body -->
+   
   <script>
   var stores; 
   var HUB;
@@ -147,7 +224,7 @@ HUB.features.forEach(function(marker2) {
 
     var popup = new mapboxgl.Popup({closeOnClick: false})
           .setLngLat(currentFeature.geometry.coordinates)
-          .setHTML('<h3>'+ currentFeature.properties.Name +'</h3>' + 
+          .setHTML('<h3 style="background:'+ currentFeature.properties.POPCOLOR +'">'+ currentFeature.properties.Name +'</h3>' + 
             '<h4>' + currentFeature.properties.Address + '</h4>')
           .addTo(map);
   }
@@ -157,7 +234,7 @@ HUB.features.forEach(function(marker2) {
       var currentFeature = data.features[i];
       var prop = currentFeature.properties;
       
-      var listings = document.getElementById('listings');
+      var listings = document.getElementById(prop.TYPE);
       var listing = listings.appendChild(document.createElement('div'));
       listing.className = 'item';
       listing.id = "listing-" + i;
