@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset='utf-8' />
+      <title>Dogpatch Bloack Party and Walk About</title>
+      <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+      <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
+
+      <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.css' rel='stylesheet' />
+      <link rel="stylesheet" href="assets/css/main.css">
+      
+      <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <script src="assets/data/dogpatch.js"> </script>
+      <script src="assets/data/HUB.js"></script>
+      <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.js'></script>
+      <style>
+      .marker {
+          border: none;
+          cursor: pointer;
+          height: 30px;
+          width: 30px;
+          transform: translate(28px, 56px, 0);
+        }
+
+      </style>
+  </head>
+  
+  <body>
+<!-- <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+              <span><a class="navbar-brand" href="http://www.dvrpc.org/" target="_blank"><img src="assets/img/ecity.png" alt="Effortless City" style="margin:-10px 10px -10px 0;"/></a>
+              </span>
+        </div>
+      </div>
+</div>
+-->
+<!-- Start Main Body -->
+    <div id="container">
+      <div id="sidebar" class="col-sm-6">
+        <div id='map' class='map'></div>
+      </div>
+ 
+      <div id="sidebar2" class="col-sm-6">
+         <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="card">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_" href="#overlay-layers">Hype --- Upbeat Loop
+                                </a>
+                            </div>
+                            <div id="overlay-layers" class="panel-collapse collapse in">
+                                <div class="panel-body" style="padding: 0px 15px;">
+                                         <div class="col-sm-6">
+            <div class="panel panel-primary" id="cardpedpanel">
+            <div class="panel-heading" id="cardped"><img src="assets/img/grub.png" style="margin:0px 15px 0px 0px">Grub & Sip</div>
+            <div id='hype1' class='listings'></div>
+            </div>
+            </div>
+             <div class="col-sm-6" >
+            <div class="panel panel-primary" id="cardpedpanel2">
+            <div class="panel-heading" id="cardped"><img src="assets/img/shop.png" style="margin:0px 15px 0px 0px">Shop & Do</div>
+             <div id='hype2' class='listings'></div>
+            </div>
+            <div class="panel panel-primary" id="cardpedpanel">
+            <div class="panel-heading" id="cardped"><img src="assets/img/needs.png" style="margin:0px 15px 0px 0px">Needs & Wants</div>
+              <div id='hype3' class='listings'></div>
+            </div>
+            </div>
+                                </div>
+                            </div>
+          
+                        </div>
+                
+        </div>
+
+  
+
+        <div class="row" id="barcharts"> 
+            <div class="panel panel-primary" id="card2">
+            <div class="card-title">Stroll --- Relax Loop</div>
+            </div>
+
+            <div class="col-sm-6">
+            <div class="panel panel-primary" id="cardpedpanel">
+            <div class="panel-heading" id="cardped"><img src="assets/img/grub.png" style="margin:0px 15px 0px 0px">Grub & Sip</div>
+            <div id='stroll1' class='listings'></div>
+            </div>
+            </div>
+
+            <div class="col-sm-6" >
+            <div class="panel panel-primary" id="cardpedpanel2">
+            <div class="panel-heading" id="cardped"><img src="assets/img/shop.png" style="margin:0px 15px 0px 0px">Shop & Do</div>
+            <div id='stroll2' class='listings'></div>
+            </div>
+            <div class="panel panel-primary" id="cardpedpanel">
+            <div class="panel-heading" id="cardped"><img src="assets/img/needs.png" style="margin:0px 15px 0px 0px">Needs & Wants</div>
+            <div id='stroll3' class='listings'></div>
+            </div>
+            </div>
+      </div>
+
+
+
+      </div>  
+
+ </div>     
+
+<!-- End Main Body -->
+   
+  <script>
+  var stores; 
+  var HUB;
+  var zoomThreshold = 16;
+  // This will let you use the .remove() function later on
+  if (!('remove' in Element.prototype)) {
+    Element.prototype.remove = function() {
+      if (this.parentNode) {
+          this.parentNode.removeChild(this);
+      }
+    };
+  }
+
+  mapboxgl.accessToken = 'pk.eyJ1IjoiY3J2YW5wb2xsYXJkIiwiYSI6ImNqMHdvdnd5MTAwMWEycXBocm4zbXVjZm8ifQ.3zjbFccILu6mL7cOTtp40A';
+
+  // This adds the map
+  var map = new mapboxgl.Map({
+    // container id specified in the HTML
+    container: 'map', 
+    style: 'mapbox://styles/mapbox/dark-v9', 
+  //style: 'mapbox://styles/crvanpollard/ciyd8fyqo008j2rqfku4qxcb9',
+    center: [-122.388,37.760], 
+    zoom: 15
+  });
+
+// add markers to map
+HUB.features.forEach(function(marker2) {
+    // create a DOM element for the marker
+    var el2 = document.createElement('div');
+    el2.className = 'marker2';
+    el2.style.backgroundImage = 'url(https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/'+marker2.properties.ICON + '.png)';
+    el2.style.width = '44px';
+    el2.style.height ='44px';
+
+
+    el2.addEventListener('click', function() {
+        window.alert(marker2.properties.message);
+    });
+
+    // add marker to map
+    new mapboxgl.Marker(el2)
+        .setLngLat(marker2.geometry.coordinates)
+        .addTo(map)
+   });     
+
+
+  // This adds the data to the map
+  map.on('load', function (e) {
+    // This is where your '.addLayer()' used to be, instead add only the source without styling a layer
+    map.addSource("places", {
+      "type": "geojson",
+      "data": stores
+    });
+    // Initialize the list
+    buildLocationList(stores);
+ 
+  });
+  
+  // This is where your interactions with the symbol layer used to be
+  // Now you have interactions with DOM markers instead
+  stores.features.forEach(function(marker, i) {
+    // Create an img element for the marker
+    var el = document.createElement('div');
+      el.id = "marker-" + i;
+      el.className = 'marker';
+      el.style.left ='-15px';
+      el.style.top ='-46px';
+ 
+      el.style.backgroundImage = 'url(https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/markers/'+marker.properties.MAP_ID + '.png)';
+      el.style.width = '25px';
+      el.style.height ='25px';
+
+    // Add markers to the map at all points
+    new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(map); 
+
+    el.addEventListener('click', function(e){
+        // 1. Fly to the point
+        flyToStore(marker);
+        // 2. Close all other popups and display popup for clicked store
+        createPopUp(marker);
+        // 3. Highlight listing in sidebar (and remove highlight for all other listings)
+        var activeItem = document.getElementsByClassName('active');
+        e.stopPropagation();
+        if (activeItem[0]) {
+           activeItem[0].classList.remove('active');
+        }
+        var listing = document.getElementById('listing-' + i);
+        listing.classList.add('active');
+    });
+  });
+
+  function flyToStore(currentFeature) {
+    map.flyTo({
+        center: currentFeature.geometry.coordinates,
+        zoom: 16
+      }); 
+  }
+
+  function createPopUp(currentFeature) {
+  /*  if (currentFeature.properties.MAP_ID < 10) {
+          alert("Under 10");
+    } else {
+          alert("Over 10");
+      } */
+
+    var popUps = document.getElementsByClassName('mapboxgl-popup');
+    if (popUps[0]) popUps[0].remove();
+
+    var popup = new mapboxgl.Popup({closeOnClick: false})
+          .setLngLat(currentFeature.geometry.coordinates)
+          .setHTML('<h3 style="background:'+ currentFeature.properties.POPCOLOR +'">'+ currentFeature.properties.Name +'</h3>' + 
+            '<h4>' + currentFeature.properties.Address + '</h4>')
+          .addTo(map);
+  }
+
+  function buildLocationList(data) {
+    for (i = 0; i < data.features.length; i++) {
+      var currentFeature = data.features[i];
+      var prop = currentFeature.properties;
+      
+      var listings = document.getElementById(prop.TYPE);
+      var listing = listings.appendChild(document.createElement('div'));
+      listing.className = 'item';
+      listing.id = "listing-" + i;
+      
+      var link = listing.appendChild(document.createElement('a'));
+      link.href = '#';
+      link.className = 'title';
+      link.dataPosition = i;
+      link.innerHTML = '<img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/markers/'+ prop.MAP_ID + '.png" style="vertical-align: middle;margin-right:5px;">'+ prop.Name;     
+      
+      var details = listing.appendChild(document.createElement('div'));
+     // content = prop.Address + '<br>'+prop.Amenities;
+      
+      if (prop.ADA_WC ==='no'){ var WC = '';}
+      else { var WC =  '<img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_wc.png" style="float:right;margin-top:-18px;">';}
+
+       if (prop.ADA_PARK ==='no'){ var Parking = '';}
+      else { var Parking =  '<img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_parking.png" style="float:right;margin-top:-18px;">';}
+
+      content = '&nbsp &nbsp &nbsp &nbsp &nbsp ' 
+                + prop.Address 
+                + '<img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/'
+                + prop.AM_ICON 
+                + '.png" style="float:right;margin-top:-18px;">'
+                + WC
+                + Parking;
+
+      details.innerHTML = content;
+
+      link.addEventListener('click', function(e){
+        // Update the currentFeature to the store associated with the clicked link
+        var clickedListing = data.features[this.dataPosition]; 
+        // 1. Fly to the point
+        flyToStore(clickedListing);
+        // 2. Close all other popups and display popup for clicked store
+        createPopUp(clickedListing);
+        // 3. Highlight listing in sidebar (and remove highlight for all other listings)
+        var activeItem = document.getElementsByClassName('active');
+        if (activeItem[0]) {
+           activeItem[0].classList.remove('active');
+        }
+        this.parentNode.classList.add('active');
+      });
+    }
+  }
+
+// Add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl(),['top-left']);
+
+
+map.on('click', function (currentFeature) {
+    var popUps = document.getElementsByClassName('mapboxgl-popup');
+    if (popUps[0]) popUps[0].remove();
+});
+
+map.on('load', function () {
+
+    map.addLayer({
+        "id": "route",
+        "type": "line",
+      "maxzoom": zoomThreshold,
+        "source": {
+            "type": "geojson",
+            "data": {
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          [
+            -122.38871,
+            37.764269
+          ],
+          [
+            -122.38896,
+            37.767388
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "08edce8d4935d28010a3c78e762475dc"
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          [
+            -122.38855,
+            37.761702
+          ],
+          [
+            -122.390656,
+            37.761599
+          ],
+          [
+            -122.390285,
+            37.757775
+          ],
+          [
+            -122.388179,
+            37.757896
+          ],
+          [
+            -122.388534,
+            37.761711
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "1def62c0a8f23ce251c6e68d6ec4492a"
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          [
+            -122.388713,
+            37.764269
+          ],
+          [
+            -122.387268,
+            37.764341
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "8927bba22314d004c4932ba3ce92fe16"
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          [
+            -122.388179,
+            37.758017
+          ],
+          [
+            -122.385532,
+            37.75817
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "adb3dc9d1450d8d6719ec42079a1e7e9"
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          [
+            -122.388713,
+            37.764269
+          ],
+          [
+            -122.388615,
+            37.763088
+          ],
+          [
+            -122.388551,
+            37.761697
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "d9e41a3c51c2618bb4d7cb29ddf873a5"
+    }
+  ],
+  "type": "FeatureCollection"
+}
+        },
+        "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "paint": {
+            "line-color": "#66cccc",
+            "line-width": 3
+        }
+    });
+});
+
+    </script>
+  </body>
+</html>
