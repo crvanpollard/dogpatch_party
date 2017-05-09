@@ -48,64 +48,61 @@
       </div>
  
       <div id="sidebar2" class="col-sm-6">
-         <div class="panel-group">
+         <div class="panel-group" id="accordion">
                         <div class="panel panel-default">
                             <div class="panel-heading" id="card">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_" href="#overlay-layers">Hype --- Upbeat Loop
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#overlay-layers">Hype --- Upbeat Loop
                                 </a>
                             </div>
                             <div id="overlay-layers" class="panel-collapse collapse in">
                                 <div class="panel-body" style="padding: 0px 15px;">
-                                         <div class="col-sm-6">
-            <div class="panel panel-primary" id="cardpedpanel">
-            <div class="panel-heading" id="cardped"><img src="assets/img/grub.png" style="margin:0px 15px 0px 0px">Grub & Sip</div>
-            <div id='hype1' class='listings'></div>
-            </div>
-            </div>
-             <div class="col-sm-6" >
-            <div class="panel panel-primary" id="cardpedpanel2">
-            <div class="panel-heading" id="cardped"><img src="assets/img/shop.png" style="margin:0px 15px 0px 0px">Shop & Do</div>
-             <div id='hype2' class='listings'></div>
-            </div>
-            <div class="panel panel-primary" id="cardpedpanel">
-            <div class="panel-heading" id="cardped"><img src="assets/img/needs.png" style="margin:0px 15px 0px 0px">Needs & Wants</div>
-              <div id='hype3' class='listings'></div>
-            </div>
-            </div>
+                                    <div class="col-sm-6">
+                                    <div class="panel panel-primary" id="cardpedpanel">
+                                    <div class="panel-heading" id="cardped"><img src="assets/img/grub.png" style="margin:0px 15px 0px 0px">Grub & Sip</div>
+                                    <div id='hype1' class='listings'></div>
+                                    </div>
+                                    </div>
+                                     <div class="col-sm-6" >
+                                    <div class="panel panel-primary" id="cardpedpanel2">
+                                    <div class="panel-heading" id="cardped"><img src="assets/img/shop.png" style="margin:0px 15px 0px 0px">Shop & Do</div>
+                                     <div id='hype2' class='listings'></div>
+                                    </div>
+                                    <div class="panel panel-primary" id="cardpedpanel">
+                                    <div class="panel-heading" id="cardped"><img src="assets/img/needs.png" style="margin:0px 15px 0px 0px">Needs & Wants</div>
+                                      <div id='hype3' class='listings'></div>
+                                    </div>
+                                    </div>
                                 </div>
                             </div>
-          
                         </div>
-                
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="card2">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#overlay-layers2">Stroll --- Relax Loop
+                                </a>
+                            </div>
+                            <div id="overlay-layers2" class="panel-collapse collapse in">
+                                <div class="panel-body" style="padding: 0px 15px;">
+                                    <div class="col-sm-6">
+                                    <div class="panel panel-primary" id="cardpedpanel">
+                                    <div class="panel-heading" id="cardped"><img src="assets/img/grub.png" style="margin:0px 15px 0px 0px">Grub & Sip</div>
+                                    <div id='stroll1' class='listings'></div>
+                                    </div>
+                                    </div>
+                                     <div class="col-sm-6" >
+                                    <div class="panel panel-primary" id="cardpedpanel2">
+                                    <div class="panel-heading" id="cardped"><img src="assets/img/shop.png" style="margin:0px 15px 0px 0px">Shop & Do</div>
+                                     <div id='stroll2' class='listings'></div>
+                                    </div>
+                                    <div class="panel panel-primary" id="cardpedpanel">
+                                    <div class="panel-heading" id="cardped"><img src="assets/img/needs.png" style="margin:0px 15px 0px 0px">Needs & Wants</div>
+                                      <div id='stroll3' class='listings'></div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
         </div>
-
-  
-
-        <div class="row" id="barcharts"> 
-            <div class="panel panel-primary" id="card2">
-            <div class="card-title">Stroll --- Relax Loop</div>
-            </div>
-
-            <div class="col-sm-6">
-            <div class="panel panel-primary" id="cardpedpanel">
-            <div class="panel-heading" id="cardped"><img src="assets/img/grub.png" style="margin:0px 15px 0px 0px">Grub & Sip</div>
-            <div id='stroll1' class='listings'></div>
-            </div>
-            </div>
-
-            <div class="col-sm-6" >
-            <div class="panel panel-primary" id="cardpedpanel2">
-            <div class="panel-heading" id="cardped"><img src="assets/img/shop.png" style="margin:0px 15px 0px 0px">Shop & Do</div>
-            <div id='stroll2' class='listings'></div>
-            </div>
-            <div class="panel panel-primary" id="cardpedpanel">
-            <div class="panel-heading" id="cardped"><img src="assets/img/needs.png" style="margin:0px 15px 0px 0px">Needs & Wants</div>
-            <div id='stroll3' class='listings'></div>
-            </div>
-            </div>
-      </div>
-
-
 
       </div>  
 
@@ -146,8 +143,6 @@ HUB.features.forEach(function(marker2) {
     el2.style.backgroundImage = 'url(https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/'+marker2.properties.ICON + '.png)';
     el2.style.width = '44px';
     el2.style.height ='44px';
-
-
     el2.addEventListener('click', function() {
         window.alert(marker2.properties.message);
     });
@@ -158,7 +153,6 @@ HUB.features.forEach(function(marker2) {
         .addTo(map)
    });     
 
-
   // This adds the data to the map
   map.on('load', function (e) {
     // This is where your '.addLayer()' used to be, instead add only the source without styling a layer
@@ -168,7 +162,6 @@ HUB.features.forEach(function(marker2) {
     });
     // Initialize the list
     buildLocationList(stores);
- 
   });
   
   // This is where your interactions with the symbol layer used to be
@@ -180,7 +173,6 @@ HUB.features.forEach(function(marker2) {
       el.className = 'marker';
       el.style.left ='-15px';
       el.style.top ='-46px';
- 
       el.style.backgroundImage = 'url(https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/markers/'+marker.properties.MAP_ID + '.png)';
       el.style.width = '25px';
       el.style.height ='25px';
@@ -223,10 +215,18 @@ HUB.features.forEach(function(marker2) {
     var popUps = document.getElementsByClassName('mapboxgl-popup');
     if (popUps[0]) popUps[0].remove();
 
+      if (currentFeature.properties.info ==='na'){ var info2 = '';}
+      else { var info2 =  currentFeature.properties.info ;}
+
+
+      if (currentFeature.properties.Website ==='na'){ var web = '';}
+      else { var web =  '<a class="one" href="http://www.' + currentFeature.properties.Website+'" target="_new">Website</a>';}
+
+
     var popup = new mapboxgl.Popup({closeOnClick: false})
           .setLngLat(currentFeature.geometry.coordinates)
-          .setHTML('<h3 style="background:'+ currentFeature.properties.POPCOLOR +'">'+ currentFeature.properties.Name +'</h3>' + 
-            '<h4>' + currentFeature.properties.Address + '</h4>')
+          .setHTML('<h3 style="background:'+ currentFeature.properties.POPCOLOR +'">'+ currentFeature.properties.Name +'<br><p class="addr">'+currentFeature.properties.Address + '</font></h3>' + 
+            '<h4>' + info2 +'<br>'+ web +'</h4>')
           .addTo(map);
   }
 
