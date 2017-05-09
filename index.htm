@@ -55,7 +55,7 @@
                                 </a>
                             </div>
                             <div id="overlay-layers" class="panel-collapse collapse in">
-                                <div class="panel-body" style="padding: 0px 15px;">
+                                <div class="panel-body" style="padding: 0px 15px;" id="hype">
                                     <div class="col-sm-6">
                                     <div class="panel panel-primary" id="cardpedpanel">
                                     <div class="panel-heading" id="cardped"><img src="assets/img/grub.png" style="margin:0px 15px 0px 0px">Grub & Sip</div>
@@ -82,7 +82,7 @@
                                 </a>
                             </div>
                             <div id="overlay-layers2" class="panel-collapse collapse in">
-                                <div class="panel-body" style="padding: 0px 15px;">
+                                <div class="panel-body" style="padding: 0px 15px;" id="stroll">
                                     <div class="col-sm-6">
                                     <div class="panel panel-primary" id="cardpedpanel">
                                     <div class="panel-heading" id="cardped"><img src="assets/img/grub.png" style="margin:0px 15px 0px 0px">Grub & Sip</div>
@@ -216,17 +216,17 @@ HUB.features.forEach(function(marker2) {
     if (popUps[0]) popUps[0].remove();
 
       if (currentFeature.properties.info ==='na'){ var info2 = '';}
-      else { var info2 =  currentFeature.properties.info ;}
+      else { var info2 =  currentFeature.properties.info +'<br>';}
 
 
       if (currentFeature.properties.Website ==='na'){ var web = '';}
-      else { var web =  '<a class="one" href="http://www.' + currentFeature.properties.Website+'" target="_new">Website</a>';}
+      else { var web =  '<a class="one" href="' + currentFeature.properties.Website+'" target="_new">Website</a>';}
 
 
     var popup = new mapboxgl.Popup({closeOnClick: false})
           .setLngLat(currentFeature.geometry.coordinates)
-          .setHTML('<h3 style="background:'+ currentFeature.properties.POPCOLOR +'">'+ currentFeature.properties.Name +'<br><p class="addr">'+currentFeature.properties.Address + '</font></h3>' + 
-            '<h4>' + info2 +'<br>'+ web +'</h4>')
+          .setHTML('<h3 style="padding-bottom:1px;background:'+ currentFeature.properties.POPCOLOR +'">'+ currentFeature.properties.Name +'<br><p class="addr">'+currentFeature.properties.Address + '</font></h3>' + 
+            '<h4>' + info2 + web +'</h4>')
           .addTo(map);
   }
 
