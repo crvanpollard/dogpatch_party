@@ -1,12 +1,4 @@
-﻿map.on('load', function () {
-
-    map.addLayer({
-        "id": "route",
-        "type": "line",
-      "maxzoom": zoomThreshold,
-        "source": {
-            "type": "geojson",
-            "data": {
+﻿{
   "features": [
     {
       "type": "Feature",
@@ -539,14 +531,3 @@
   ],
   "type": "FeatureCollection"
 }
-        },
-        "layout": {
-            "line-join": "round",
-            "line-cap": "round"
-        },
-        "paint": {
-            "line-color": "#66cccc",
-            "line-width": 3
-        }
-    });
-});

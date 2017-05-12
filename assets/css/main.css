@@ -127,8 +127,8 @@
     margin-top:-15px;
     }
      .mapboxgl-popup-content .addr {
-font-style: italic;
-font-size: 55%;
+    font-style: italic;
+    font-size: 55%;
     }
     .mapboxgl-popup-content h4 {
     margin:0;
@@ -185,4 +185,11 @@ font-size: 55%;
   margin:10px 5px 5px 5px;
   text-align: center;
   min-height: 35px;
+}
+.one {
+  color:#428bca;
+}
+.one a:hover, a:focus {
+    color: #2a6496;
+    text-decoration: underline;
 }
