@@ -19,15 +19,15 @@
         "sponsor": "yes",
         "TYPE": "hype3",
         "Website": "http://www.warriorsgroundsf.com",
-        "LONG": -122.3977268,
+        "LONG": -122.388094,
         "Category": "Needs & Wants",
         "MAP_ID": 1,
-        "LAT": 37.7665125
+        "LAT": 37.767094
       },
       "geometry": {
         "coordinates": [
-          -122.38808,
-          37.767355
+          -122.388094,
+          37.767094
         ],
         "type": "Point"
       },
@@ -52,15 +52,15 @@
         "sponsor": "yes",
         "TYPE": "hype1",
         "Website": "http://www.theramprestaurant.com",
-        "LONG": -122.38719,
+        "LONG": -122.386842,
         "Category": "Grub & Sip",
         "MAP_ID": 2,
-        "LAT": 37.7640842
+        "LAT": 37.764108
       },
       "geometry": {
         "coordinates": [
-          -122.387583,
-          37.764193
+          -122.386842,
+          37.764108
         ],
         "type": "Point"
       },
@@ -382,15 +382,15 @@
         "sponsor": "yes",
         "TYPE": "hype2",
         "Website": "https://www.bryrstudio.com",
-        "LONG": -122.3881513,
+        "LONG": -122.388194,
         "Category": "Shop & Do",
         "MAP_ID": 12,
-        "LAT": 37.7599718
+        "LAT": 37.759968
       },
       "geometry": {
         "coordinates": [
-          -122.388151,
-          37.759971
+          -122.388194,
+          37.759968
         ],
         "type": "Point"
       },
@@ -415,15 +415,15 @@
         "sponsor": "yes",
         "TYPE": "hype2",
         "Website": "http://www.spiceron3rd.com",
-        "LONG": -122.3881337,
+        "LONG": -122.388191,
         "Category": "Shop & Do",
         "MAP_ID": 13,
-        "LAT": 37.7597595
+        "LAT": 37.759827
       },
       "geometry": {
         "coordinates": [
-          -122.388105,
-          37.758485
+          -122.388191,
+          37.759827
         ],
         "type": "Point"
       },
@@ -449,15 +449,15 @@
         "sponsor": "yes",
         "TYPE": "hype1",
         "Website": "http://www.neighborsf.com",
-        "LONG": -122.3881892,
+        "LONG": -122.388196,
         "Category": "Grub & Sip",
         "MAP_ID": 14,
-        "LAT": 37.7596149
+        "LAT": 37.759643
       },
       "geometry": {
         "coordinates": [
-          -122.388189,
-          37.759614
+          -122.388196,
+          37.759643
         ],
         "type": "Point"
       },
@@ -550,15 +550,15 @@
         "sponsor": "yes",
         "TYPE": "hype2",
         "Website": "http://velocipedecyclery.com",
-        "LONG": -122.3881014,
+        "LONG": -122.388155,
         "Category": "Shop & Do",
         "MAP_ID": 17,
-        "LAT": 37.7592906
+        "LAT": 37.759287
       },
       "geometry": {
         "coordinates": [
-          -122.388101,
-          37.75929
+          -122.388155,
+          37.759287
         ],
         "type": "Point"
       },
@@ -583,15 +583,15 @@
         "sponsor": "yes",
         "TYPE": "hype1",
         "Website": "http://www.lafromageriesf.com",
-        "LONG": -122.3880397,
+        "LONG": -122.388132,
         "Category": "Grub & Sip",
         "MAP_ID": 18,
-        "LAT": 37.7589009
+        "LAT": 37.758994
       },
       "geometry": {
         "coordinates": [
-          -122.388039,
-          37.7589
+          -122.388132,
+       37.758994
         ],
         "type": "Point"
       },
@@ -616,15 +616,15 @@
         "sponsor": "yes",
         "TYPE": "hype2",
         "Website": "http://www.industriouslife.com",
-        "LONG": -122.3891523,
+        "LONG": -122.389104,
         "Category": "Shop & Do",
         "MAP_ID": 19,
-        "LAT": 37.7581571
+        "LAT": 37.758206
       },
       "geometry": {
         "coordinates": [
-          -122.389152,
-          37.758157
+          -122.389104,
+         37.758206
         ],
         "type": "Point"
       },
@@ -649,15 +649,15 @@
         "sponsor": "yes",
         "TYPE": "hype1",
         "Website": "http://www.yieldandpause.com/yield/index.html",
-        "LONG": -122.3885336,
+        "LONG": -122.388577,
         "Category": "Grub & Sip",
         "MAP_ID": 20,
-        "LAT": 37.7581259
+        "LAT": 37.75834
       },
       "geometry": {
         "coordinates": [
-          -122.388637,
-          37.758343
+          -122.388577,
+         37.75834
         ],
         "type": "Point"
       },
@@ -682,15 +682,15 @@
         "sponsor": "no",
         "TYPE": "hype1",
         "Website": "http://www.gilberths.com",
-        "LONG": -122.3881224,
+        "LONG": -122.388105,
         "Category": "Grub & Sip",
         "MAP_ID": 21,
-        "LAT": 37.7587985
+        "LAT": 37.75872
       },
       "geometry": {
         "coordinates": [
-          -122.388122,
-          37.758798
+          -122.388105,
+         37.75872
         ],
         "type": "Point"
       },
@@ -715,15 +715,15 @@
         "sponsor": "yes",
         "TYPE": "hype1",
         "Website": "http://www.marcellaslasagneria.com",
-        "LONG": -122.3891494,
+        "LONG": -122.38909,
         "Category": "Grub & Sip",
         "MAP_ID": 22,
-        "LAT": 37.7580604
+        "LAT": 37.758042
       },
       "geometry": {
         "coordinates": [
-          -122.389073,
-          37.758187
+          -122.38909,
+          37.758042
         ],
         "type": "Point"
       },
@@ -749,15 +749,15 @@
         "sponsor": "no",
         "TYPE": "hype1",
         "Website": "http://dogpatchsaloon.com",
-        "LONG": -122.3885746,
+        "LONG": -122.388542,
         "Category": "Grub & Sip",
         "MAP_ID": 23,
-        "LAT": 37.7581944
+        "LAT": 37.758056
       },
       "geometry": {
         "coordinates": [
-          -122.388584,
-          37.758104
+          -122.388542,
+          37.758056
         ],
         "type": "Point"
       },
@@ -818,7 +818,7 @@
         "LONG": -122.3944222,
         "Category": "Needs & Wants",
         "MAP_ID": 25,
-        "LAT": 37.7578894
+        "LAT": 37.757889
       },
       "geometry": {
         "coordinates": [
@@ -914,15 +914,15 @@
         "sponsor": "yes",
         "TYPE": "hype1",
         "Website": "http://www.justforyoucafe.com",
-        "LONG": -122.3890659,
+        "LONG": -122.388919,
         "Category": "Grub & Sip",
         "MAP_ID": 28,
-        "LAT": 37.7580644
+        "LAT": 37.758024
       },
       "geometry": {
         "coordinates": [
-          -122.389065,
-          37.758064
+          -122.388919,
+         37.758024
         ],
         "type": "Point"
       },
@@ -947,15 +947,15 @@
         "sponsor": "yes",
         "TYPE": "hype3",
         "Website": "na",
-        "LONG": -122.3889629,
+        "LONG": -122.388796,
         "Category": "Needs & Wants",
         "MAP_ID": 29,
-        "LAT": 37.7581392
+        "LAT": 37.758029
       },
       "geometry": {
         "coordinates": [
-          -122.388868,
-          37.758041
+          -122.388796,
+          37.758029
         ],
         "type": "Point"
       },
@@ -980,15 +980,15 @@
         "sponsor": "yes",
         "TYPE": "hype3",
         "Website": "http://www.pier70sf.com",
-        "LONG": -122.3985871,
+        "LONG": -122.384234,
         "Category": "Needs & Wants",
         "MAP_ID": 30,
-        "LAT": 37.7618242
+        "LAT": 37.758278
       },
       "geometry": {
         "coordinates": [
-          -122.384384,
-          37.758614
+          -122.384234,
+         37.758278
         ],
         "type": "Point"
       },
@@ -1047,15 +1047,15 @@
         "sponsor": "yes",
         "TYPE": "stroll1",
         "Website": "http://piccino.com",
-        "LONG": -122.3899229,
+        "LONG": -122.390027,
         "Category": "Grub & Sip",
         "MAP_ID": 32,
-        "LAT": 37.7575688
+        "LAT": 37.757632
       },
       "geometry": {
         "coordinates": [
-          -122.390046,
-          37.757547
+          -122.390027,
+          37.757632
         ],
         "type": "Point"
       },
@@ -1083,15 +1083,15 @@
         "sponsor": "yes",
         "TYPE": "stroll2",
         "Website": "https://workshopresidence.com",
-        "LONG": -122.3898931,
+        "LONG": -122.389919,
         "Category": "Shop & Do",
         "MAP_ID": 33,
-        "LAT": 37.7576341
+        "LAT": 37.757713
       },
       "geometry": {
         "coordinates": [
-          -122.389931,
-          37.75774
+         -122.389919,
+          37.757713
         ],
         "type": "Point"
       },
@@ -1115,16 +1115,16 @@
         "Amenities": "Restaurant",
         "sponsor": "yes",
         "TYPE": "stroll1",
-        "Website": "na",
-        "LONG": -122.3896726,
+        "Website": "https://www.recchiuti.com",
+        "LONG": -122.389484,
         "Category": "Grub & Sip",
         "MAP_ID": 34,
-        "LAT": 37.7577337
+        "LAT": 37.757744
       },
       "geometry": {
         "coordinates": [
-          -122.389626,
-          37.757738
+          -122.389484,
+          37.757744
         ],
         "type": "Point"
       },
@@ -1149,15 +1149,15 @@
         "sponsor": "yes",
         "TYPE": "stroll1",
         "Website": "https://www.facebook.com/Mr-and-Mrs-Miscellaneous-126193770733086",
-        "LONG": -122.3880487,
+        "LONG": -122.388049,
         "Category": "Grub & Sip",
         "MAP_ID": 35,
-        "LAT": 37.7577044
+        "LAT": 37.757704
       },
       "geometry": {
         "coordinates": [
-          -122.388048,
-          37.757704
+          -122.388049,
+        37.757704
         ],
         "type": "Point"
       },
@@ -1185,7 +1185,7 @@
         "LONG": -122.388557,
         "Category": "Shop & Do",
         "MAP_ID": 36,
-        "LAT": 37.7578004
+        "LAT": 37.7578
       },
       "geometry": {
         "coordinates": [
@@ -1203,7 +1203,7 @@
         "OLD_MAP": 26,
         "steps": "no",
         "City": "San Francisco",
-        "Name": "Smokestack at Magnolia Brewing Co.",
+        "Name": "Smokestack",
         "ADA_PARK": "no",
         "AM_ICON": "beer",
         "ADA_WC": "yes",
@@ -1215,15 +1215,15 @@
         "sponsor": "yes",
         "TYPE": "stroll1",
         "Website": "http://magnoliabrewing.com",
-        "LONG": -122.3879496,
+        "LONG": -122.387996,
         "Category": "Grub & Sip",
         "MAP_ID": 37,
-        "LAT": 37.757722
+        "LAT": 37.757458
       },
       "geometry": {
         "coordinates": [
-          -122.387995,
-          37.757457
+          -122.387996,
+          37.757458
         ],
         "type": "Point"
       },
@@ -1251,7 +1251,7 @@
         "LONG": -122.388523,
         "Category": "Grub & Sip",
         "MAP_ID": 38,
-        "LAT": 37.7575292
+        "LAT":37.757529
       },
       "geometry": {
         "coordinates": [
@@ -1281,15 +1281,15 @@
         "sponsor": "yes",
         "TYPE": "stroll2",
         "Website": "http://www.sfmcd.org",
-        "LONG": -122.3877893,
+        "LONG": -122.387939,
         "Category": "Shop & Do",
         "MAP_ID": 39,
-        "LAT": 37.7568398
+        "LAT": 37.757068
       },
       "geometry": {
         "coordinates": [
           -122.387939,
-          37.757067
+        37.757068
         ],
         "type": "Point"
       },
@@ -1317,7 +1317,7 @@
         "LONG": -122.388489,
         "Category": "Needs & Wants",
         "MAP_ID": 40,
-        "LAT": 37.7573241
+        "LAT":37.757324
       },
       "geometry": {
         "coordinates": [
@@ -1347,14 +1347,14 @@
         "sponsor": "yes",
         "TYPE": "stroll3",
         "Website": "https://3rdstreetboxing.com",
-        "LONG": -122.3884808,
+        "LONG": -122.388481,
         "Category": "Needs & Wants",
         "MAP_ID": 41,
-        "LAT": 37.7569538
+        "LAT": 37.756895
       },
       "geometry": {
         "coordinates": [
-          -122.38848,
+          -122.388481,
           37.756895
         ],
         "type": "Point"
@@ -1380,15 +1380,15 @@
         "sponsor": "yes",
         "TYPE": "stroll3",
         "Website": "https://www.dogpatchbarbershop.com",
-        "LONG": -122.3884667,
+        "LONG": -122.388376,
         "Category": "Needs & Wants",
         "MAP_ID": 42,
-        "LAT": 37.7564595
+        "LAT": 37.756428
       },
       "geometry": {
         "coordinates": [
-          -122.388466,
-          37.756459
+          -122.388376,
+         37.756428
         ],
         "type": "Point"
       },
@@ -1413,15 +1413,15 @@
         "sponsor": "yes",
         "TYPE": "stroll3",
         "Website": "http://www.abacasf.com",
-        "LONG": -122.3884088,
+        "LONG": -122.388409,
         "Category": "Needs & Wants",
         "MAP_ID": 43,
-        "LAT": 37.7559218
+        "LAT": 37.755922
       },
       "geometry": {
         "coordinates": [
-          -122.388408,
-          37.755921
+          -122.388409,
+         37.755922
         ],
         "type": "Point"
       },
