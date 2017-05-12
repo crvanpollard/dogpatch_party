@@ -27,7 +27,69 @@
           width: 30px;
           transform: translate(28px, 56px, 0);
         }
+        #menu {
+        background: #fff;
+        position: absolute;
+        z-index: 1;
+        top: 20px;
+        right: 20px;
+        border-radius: 3px;
+        width: 120px;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-family: 'Open Sans', sans-serif;
+    }
 
+    #menu a {
+        font-size: 13px;
+        color: #404040;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+        text-align: center;
+    }
+
+    #menu a:last-child {
+        border: none;
+    }
+
+    #menu a:hover {
+        background-color: #f8f8f8;
+        color: #404040;
+    }
+
+    #menu a.active {
+        background-color: #3887be;
+        color: #ffffff;
+    }
+
+    #menu a.active:hover {
+        background: #3074a4;
+    }
+     #export{
+            position: absolute;
+            top:120px;
+            left:26px;
+            z-index:100;
+            background-color:white;
+            color:black;
+            padding:6px;
+            border-radius:4px;
+            font-family: 'Helvetica Neue';
+            cursor: pointer;
+            font-size:12px;
+            text-decoration:none;
+            background-image: url(https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/HUB.png);
+            background-repeat: no-repeat;
+            
+            height: 28px;
+            width: 28px;
+        }
+        #export:hover{
+            background-color: #ddd;
+        }
       </style>
   </head>
   
@@ -45,6 +107,9 @@
     <div id="container">
       <div id="sidebar" class="col-sm-6">
         <div id='map' class='map'></div>
+        <nav id="menu"></nav>
+        <a href='#' id='export'></a>
+
       </div>
  
       <div id="sidebar2" class="col-sm-6">
@@ -131,9 +196,32 @@
     container: 'map', 
     style: 'mapbox://styles/mapbox/dark-v9', 
   //style: 'mapbox://styles/crvanpollard/ciyd8fyqo008j2rqfku4qxcb9',
-    center: [-122.388,37.760], 
+    center: [ -122.389165,37.756291], 
+    bearing: 20, // Rotate Philly ~9° off of north, thanks Billy Penn.
+    pitch: 50,
     zoom: 15
   });
+
+  map.on('load', function (evt) {
+      window.setTimeout(goHome, 3000);
+    });
+
+    function goHome() {
+      // debugger
+      if (map.loaded()) {
+        var p = map.getPitch();
+        console.log(p);
+        if (p > 0) {
+          map.flyTo({
+            center: [-122.389165,37.760],
+            zoom: 15,
+            speed: 0.1,
+            bearing: -5,
+            pitch: 15
+          });
+        }
+      }
+    }
 
 // add markers to map
 HUB.features.forEach(function(marker2) {
@@ -201,7 +289,7 @@ HUB.features.forEach(function(marker2) {
   function flyToStore(currentFeature) {
     map.flyTo({
         center: currentFeature.geometry.coordinates,
-        zoom: 16
+        zoom: 17
       }); 
   }
 
@@ -220,7 +308,7 @@ HUB.features.forEach(function(marker2) {
 
 
       if (currentFeature.properties.Website ==='na'){ var web = '';}
-      else { var web =  '<a class="one" href="' + currentFeature.properties.Website+'" target="_new">Website</a>';}
+      else { var web =  '<a class="one" href="' + currentFeature.properties.Website+'" target="_new">Visit the website</a>';}
 
 
     var popup = new mapboxgl.Popup({closeOnClick: false})
@@ -285,6 +373,18 @@ HUB.features.forEach(function(marker2) {
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl(),['top-left']);
 
+document.getElementById('export').addEventListener('click', function () {
+    // Fly to a random location by offsetting the point -74.50, 40
+    // by up to 5 degrees.
+    map.flyTo({
+      center: [-122.389165,37.760],
+            zoom: 15,
+            speed: 0.5,
+            bearing: -5,
+            pitch: 15
+    });
+});
+
 
 map.on('click', function (currentFeature) {
     var popUps = document.getElementsByClassName('mapboxgl-popup');
@@ -296,116 +396,550 @@ map.on('load', function () {
     map.addLayer({
         "id": "route",
         "type": "line",
-      "maxzoom": zoomThreshold,
+    //  "maxzoom": zoomThreshold,
         "source": {
             "type": "geojson",
             "data": {
   "features": [
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "walking": "stroll2",
+        "type": "soild",
+        "color":"#ff6666"
+      },
       "geometry": {
         "coordinates": [
           [
-            -122.38871,
-            37.764269
+            -122.389841,
+            37.752817
           ],
           [
-            -122.38896,
-            37.767388
+            -122.389962,
+            37.754006
+          ],
+          [
+            -122.390076,
+            37.755343
+          ],
+          [
+            -122.389124,
+            37.755391
+          ],
+          [
+            -122.388169,
+            37.75545
+          ],
+          [
+            -122.387846,
+            37.755477
+          ],
+          [
+            -122.387922,
+            37.756252
+          ],
+          [
+            -122.387956,
+            37.756593
+          ],
+          [
+            -122.388037,
+            37.757111
+          ],
+          [
+            -122.388153,
+            37.757881
+          ],
+          [
+            -122.388489,
+            37.757849
+          ],
+          [
+            -122.388855,
+            37.75783
+          ],
+          [
+            -122.389096,
+            37.757794
+          ],
+          [
+            -122.390792,
+            37.757694
+          ],
+          [
+            -122.391052,
+            37.757673
           ]
         ],
         "type": "LineString"
       },
-      "id": "08edce8d4935d28010a3c78e762475dc"
+      "id": "1627afce6db7189ec8a5aefab4c6223d"
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "walking": "hype1",
+        "type": "solid",
+        "color":"#66cccc"
+      },
       "geometry": {
         "coordinates": [
           [
-            -122.38855,
-            37.761702
+            -122.38852,
+            37.761699
           ],
           [
-            -122.390656,
-            37.761599
+            -122.388413,
+            37.760599
           ],
           [
-            -122.390285,
-            37.757775
+            -122.38839,
+            37.760359
           ],
           [
-            -122.388179,
-            37.757896
+            -122.388333,
+            37.759806
           ],
           [
-            -122.388534,
-            37.761711
+            -122.388253,
+            37.758978
+          ],
+          [
+            -122.388162,
+            37.758029
           ]
         ],
         "type": "LineString"
       },
-      "id": "1def62c0a8f23ce251c6e68d6ec4492a"
+      "id": "347dec898ca7a0c3f53c44b332ce0c83"
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "walking": "hype1",
+        "type": "solid",
+        "color":"#66cccc"
+      },
       "geometry": {
         "coordinates": [
           [
-            -122.388713,
-            37.764269
+            -122.390434,
+            37.761586
           ],
           [
-            -122.387268,
-            37.764341
+            -122.390677,
+            37.761565
+          ],
+          [
+            -122.390602,
+            37.760688
+          ],
+          [
+            -122.390563,
+            37.760254
+          ],
+          [
+            -122.390518,
+            37.759744
+          ],
+          [
+            -122.390457,
+            37.759144
+          ],
+          [
+            -122.390394,
+            37.758531
+          ],
+          [
+            -122.390337,
+            37.757905
+          ],
+          [
+            -122.391067,
+            37.757858
           ]
         ],
         "type": "LineString"
       },
-      "id": "8927bba22314d004c4932ba3ce92fe16"
+      "id": "557cb35ee6739222df7179b38ad73eaf"
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "walking": "hype1",
+        "type": "solid",
+        "color":"#66cccc"
+      },
       "geometry": {
         "coordinates": [
           [
-            -122.388179,
-            37.758017
+            -122.388679,
+            37.764276
           ],
           [
-            -122.385532,
-            37.75817
+            -122.388037,
+            37.764287
+          ],
+          [
+            -122.387715,
+            37.764198
+          ],
+          [
+            -122.387583,
+            37.764193
           ]
         ],
         "type": "LineString"
       },
-      "id": "adb3dc9d1450d8d6719ec42079a1e7e9"
+      "id": "600f198ecf31cbdfa863f3e6476f8d96"
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "walking": "hype2",
+        "type": "dash",
+        "color":"#66cccc"
+      },
       "geometry": {
         "coordinates": [
           [
-            -122.388713,
-            37.764269
+            -122.391067,
+            37.757858
           ],
           [
-            -122.388615,
-            37.763088
+            -122.39197,
+            37.757777
           ],
           [
-            -122.388551,
-            37.761697
+            -122.392992,
+            37.757719
+          ],
+          [
+            -122.394012,
+            37.757662
+          ],
+          [
+            -122.394396,
+            37.757632
+          ],
+          [
+            -122.394422,
+            37.757889
           ]
         ],
         "type": "LineString"
       },
-      "id": "d9e41a3c51c2618bb4d7cb29ddf873a5"
+      "id": "606664d6fd5a0b3c50c75891944d32b0"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "walking": "stroll1",
+        "type": "soild",
+        "color":"#ff6666"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -122.390093,
+            37.75148
+          ],
+          [
+            -122.389716,
+            37.751506
+          ],
+          [
+            -122.389837,
+            37.75275
+          ],
+          [
+            -122.389841,
+            37.752817
+          ],
+          [
+            -122.38958,
+            37.75282
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "6d8ebb1eb4896d4f1baf6182ce6ce251"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "walking": "hype1",
+        "type": "solid",
+        "color":"#66cccc"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -122.38852,
+            37.761699
+          ],
+          [
+            -122.388884,
+            37.761683
+          ],
+          [
+            -122.38949,
+            37.761648
+          ],
+          [
+            -122.38973,
+            37.761632
+          ],
+          [
+            -122.390434,
+            37.761586
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "9e2447f50a637b0ea0b9272d3d7f4378"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "walking": "hype1",
+        "type": "solid",
+        "color":"#66cccc"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -122.388162,
+            37.758029
+          ],
+          [
+            -122.388497,
+            37.75801
+          ],
+          [
+            -122.389135,
+            37.757969
+          ],
+          [
+            -122.38911,
+            37.757801
+          ],
+          [
+            -122.389361,
+            37.757794
+          ],
+          [
+            -122.390085,
+            37.757756
+          ],
+          [
+            -122.39033,
+            37.757739
+          ],
+          [
+            -122.391054,
+            37.757689
+          ],
+          [
+            -122.391067,
+            37.757858
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "a2fc6cd2c075a5bb548002d413594cd6"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "walking": "stroll2",
+        "type": "dash",
+         "color":"#ff6666"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -122.391054,
+            37.757689
+          ],
+          [
+            -122.390926,
+            37.756234
+          ],
+          [
+            -122.390825,
+            37.755233
+          ],
+          [
+            -122.39065,
+            37.753433
+          ],
+          [
+            -122.39057,
+            37.75249
+          ],
+          [
+            -122.39046,
+            37.751463
+          ],
+          [
+            -122.390093,
+            37.75148
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "bc2cb3fe63ce3fdb8e9223b0592d7e5b"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "walking": "hype1",
+        "type": "solid",
+        "color":"#66cccc"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -122.388093,
+            37.767094
+          ],
+          [
+            -122.389299,
+            37.767023
+          ],
+          [
+            -122.389247,
+            37.766738
+          ],
+          [
+            -122.389147,
+            37.765718
+          ],
+          [
+            -122.389086,
+            37.765111
+          ],
+          [
+            -122.389027,
+            37.764405
+          ],
+          [
+            -122.388693,
+            37.76442
+          ],
+          [
+            -122.388675,
+            37.764254
+          ],
+          [
+            -122.38863,
+            37.763637
+          ],
+          [
+            -122.388581,
+            37.763145
+          ],
+          [
+            -122.388561,
+            37.76287
+          ],
+          [
+            -122.388545,
+            37.762232
+          ],
+          [
+            -122.388528,
+            37.76187
+          ],
+          [
+            -122.38852,
+            37.761699
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "c801dcda6d2408cff6a460ebfaa085c5"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "walking": "hype2",
+        "type": "dash",
+        "color":"#66cccc"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -122.390434,
+            37.761586
+          ],
+          [
+            -122.390463,
+            37.761765
+          ],
+          [
+            -122.391443,
+            37.76169
+          ],
+          [
+            -122.391384,
+            37.761044
+          ],
+          [
+            -122.391297,
+            37.76014
+          ],
+          [
+            -122.391246,
+            37.759633
+          ],
+          [
+            -122.39112,
+            37.758309
+          ],
+          [
+            -122.391067,
+            37.757858
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "ee1af50b442058c6b714bb9cf4cb2904"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "walking": "hype1",
+        "type": "solid",
+        "color":"#66cccc"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -122.388162,
+            37.758029
+          ],
+          [
+            -122.387427,
+            37.758064
+          ],
+          [
+            -122.38555,
+            37.758168
+          ],
+          [
+            -122.385547,
+            37.758114
+          ],
+          [
+            -122.385339,
+            37.758133
+          ]
+        ],
+        "type": "LineString"
+      },
+      "id": "fa38bb4e5298d86b4ba9d2cfce6e4347"
     }
   ],
   "type": "FeatureCollection"
@@ -416,11 +950,71 @@ map.on('load', function () {
             "line-cap": "round"
         },
         "paint": {
-            "line-color": "#66cccc",
-            "line-width": 3
+          //  "line-color": "#66cccc",
+            "line-width": 3,
+         //   "line-dasharray": [2,4],
+            "line-color": {
+                "type": "identity",
+                "property": "color"
+            }
         }
+
     });
 });
+
+// the 'building' layer in the mapbox-streets vector source contains building-height
+// data from OpenStreetMap.
+map.on('load', function() {
+    map.addLayer({
+        'id': 'Buildings',
+        'source': 'composite',
+        'source-layer': 'building',
+        'filter': ['==', 'extrude', 'true'],
+        'type': 'fill-extrusion',
+        'minzoom': 15,
+        'paint': {
+            'fill-extrusion-color': '#aaa',
+            'fill-extrusion-height': {
+                'type': 'identity',
+                'property': 'height'
+            },
+            'fill-extrusion-base': {
+                'type': 'identity',
+                'property': 'min_height'
+            },
+            'fill-extrusion-opacity': .5
+        }
+    });
+    });
+var toggleableLayerIds = [ 'Buildings'];
+
+for (var i = 0; i < toggleableLayerIds.length; i++) {
+    var id = toggleableLayerIds[i];
+
+    var link = document.createElement('a');
+    link.href = '#';
+    link.className = 'active';
+    link.textContent = id;
+
+    link.onclick = function (e) {
+        var clickedLayer = this.textContent;
+        e.preventDefault();
+        e.stopPropagation();
+
+        var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+        if (visibility === 'visible') {
+            map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+            this.className = '';
+        } else {
+            this.className = 'active';
+            map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+        }
+    };
+
+    var layers = document.getElementById('menu');
+    layers.appendChild(link);
+}
 
     </script>
   </body>
