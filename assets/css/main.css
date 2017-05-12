@@ -103,7 +103,7 @@
     }
     /* Marker tweaks */
     .mapboxgl-popup {
-    padding-bottom: 50px;
+    padding-bottom: 30px;
     }
     .mapboxgl-popup-close-button {
     display:none;
@@ -193,3 +193,37 @@
     color: #2a6496;
     text-decoration: underline;
 }
+.amen_icons{
+  float:right;
+  margin-top:-38px;
+}
+
+.address_info{
+  margin-left: 31px;
+}
+@media (max-width: 1024px){
+                 .listings .item .title {
+                display:block;
+                font-size:85%;
+                }
+                .address_info {
+                    display:none;
+                }
+                .amen_icons{
+                float:right;
+                margin-top:-28px;
+                }
+            }
+@media (max-width: 500px){
+                 .listings .item .title {
+                display:block;
+                font-size:85%;
+                }
+                .address_info {
+                    display:block;
+                }
+                .amen_icons{
+                float:right;
+                margin-top:-38px;
+                }
+            }            
