@@ -179,10 +179,10 @@ HUB.features.forEach(function(marker2) {
      // content = prop.Address + '<br>'+prop.Amenities;
       
       if (prop.ADA_WC ==='no'){ var WC = '';}
-      else { var WC =  '<img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_wc.png">';}
+      else { var WC =  '<img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_wc.png">';}
 
        if (prop.ADA_PARK ==='no'){ var Parking = '';}
-      else { var Parking =  '<img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_parking.png">';}
+      else { var Parking =  '<img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_parking.png">';}
 
       content = '<div class="address_info">'
                 + prop.Address 

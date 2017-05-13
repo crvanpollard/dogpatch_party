@@ -606,7 +606,7 @@
         "City": "San Francisco",
         "Name": "Industrious Life",
         "ADA_PARK": "no",
-        "AM_ICON": "blank",
+        "AM_ICON": "shop",
         "ADA_WC": "no",
         "info": "New and vintage design for inspired living. Home décor and an eclectic mix of gifts, stationary jewelry and more.",
         "State": "CA",
