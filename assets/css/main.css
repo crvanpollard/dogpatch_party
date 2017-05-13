@@ -197,6 +197,10 @@
   float:right;
   margin-top:-38px;
 }
+.list_icons{
+  height:32px;
+  width: 30px;
+}
 
 .address_info{
   margin-left: 31px;

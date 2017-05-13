@@ -187,7 +187,7 @@ HUB.features.forEach(function(marker2) {
       content = '<div class="address_info">'
                 + prop.Address 
                 +'</div>'
-                + '<div class="amen_icons"> <img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/'
+                + '<div class="amen_icons"> <img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/'
                 + prop.AM_ICON 
                 + '.png" >'
                 + WC
