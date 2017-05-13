@@ -2,6 +2,22 @@
   var HUB;
   var zoomThreshold = 16;
   var curbcuts;
+
+  $(document).ready(function() {
+    //OPEN ABOUT DIALOG
+    $('#aboutModal').modal(); 
+  });
+
+  $(document).on('hide.bs.modal','#aboutModal', function () {
+    setTimeout(goHome, 2000);
+  //  map.flyTo({
+  //    center: [-122.389165,37.760],
+  //          zoom: 15,
+  //          speed: 0.1,
+  //          bearing: -5,
+ //           pitch: 15
+ //   });
+  });
   // This will let you use the .remove() function later on
   if (!('remove' in Element.prototype)) {
     Element.prototype.remove = function() {
@@ -26,14 +42,14 @@
   });
 
   map.on('load', function (evt) {
-      window.setTimeout(goHome, 3000);
+   //   window.setTimeout(goHome, 3000);
     });
 
     function goHome() {
       // debugger
       if (map.loaded()) {
         var p = map.getPitch();
-        console.log(p);
+     //   console.log(p);
         if (p > 0) {
           map.flyTo({
             center: [-122.389165,37.760],
@@ -163,15 +179,15 @@ HUB.features.forEach(function(marker2) {
      // content = prop.Address + '<br>'+prop.Amenities;
       
       if (prop.ADA_WC ==='no'){ var WC = '';}
-      else { var WC =  '<img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_wc.png">';}
+      else { var WC =  '<img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_wc.png">';}
 
        if (prop.ADA_PARK ==='no'){ var Parking = '';}
-      else { var Parking =  '<img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_parking.png">';}
+      else { var Parking =  '<img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_parking.png">';}
 
       content = '<div class="address_info">'
                 + prop.Address 
                 +'</div>'
-                + '<div class="amen_icons"> <img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/'
+                + '<div class="amen_icons"> <img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/'
                 + prop.AM_ICON 
                 + '.png" >'
                 + WC

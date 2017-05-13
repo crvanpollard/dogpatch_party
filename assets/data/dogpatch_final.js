@@ -143,7 +143,7 @@
         "ADA_PARK": "no",
         "AM_ICON": "dp",
         "ADA_WC": "no",
-        "info": "Designed by renowned local architects Peter Pfau and Owen Kennerly, O&M features studios, 1-, 2-, and 3-bedroom homes. Inquiries on leasing: (415) 694-9594",
+        "info": "Designed by renowned local architects Peter Pfau and Owen Kennerly, O&M features studios, 1-, 2-, and 3-bedroom homes.<br>Inquiries on leasing: (415) 694-9594",
         "State": "CA",
         "POPCOLOR": "#66cccc",
         "Address": "680 Indiana St",
@@ -308,7 +308,7 @@
         "ADA_PARK": "no",
         "AM_ICON": "dp",
         "ADA_WC": "no",
-        "info": "Where you live is where you come alive. Within our community of courtyard-connected homes, you'll find thoughtfully designed studio, one-, two- and three bedroom apartments and townhomes. Inquiries on leasing: (855) 330-0227",
+        "info": "Where you live is where you come alive. Within our community of courtyard-connected homes, you'll find thoughtfully designed studio, one-, two- and three bedroom apartments and townhomes.<br> Inquiries on leasing: (855) 330-0227",
         "State": "CA",
         "POPCOLOR": "#66cccc",
         "Address": "800 Indiana St",
@@ -339,7 +339,7 @@
         "City": "San Francisco",
         "Name": "Dogpatch Capital",
         "ADA_PARK": "no",
-        "AM_ICON": "blank",
+        "AM_ICON": "money",
         "ADA_WC": "no",
         "info": "Personalized Wealth & Investment Management",
         "State": "CA",
@@ -606,7 +606,7 @@
         "City": "San Francisco",
         "Name": "Industrious Life",
         "ADA_PARK": "no",
-        "AM_ICON": "blank",
+        "AM_ICON": "shop",
         "ADA_WC": "no",
         "info": "New and vintage design for inspired living. Home décor and an eclectic mix of gifts, stationary jewelry and more.",
         "State": "CA",
@@ -807,7 +807,7 @@
         "ADA_PARK": "no",
         "AM_ICON": "dp",
         "ADA_WC": "no",
-        "info": "Handcrafted. Modern Design. A bit rustic, a bit refined, Knox’s organic-modern interiors have an inviting aesthetic, deeply rooted in comfort. One-, two- and three-bedroom homes soften the basics of modern design with warm natural tones and materials.",
+        "info": "Handcrafted. Modern Design. A bit rustic, a bit refined, Knox’s organic-modern interiors have an inviting aesthetic, deeply rooted in comfort. One-, two- and three-bedroom homes soften the basics of modern design with warm natural tones and materials.<br>Sales Gallery: 1300 22nd St.<br>(415) 643-5669 ",
         "State": "CA",
         "POPCOLOR": "#66cccc",
         "Address": "1300 22nd St",
@@ -1001,7 +1001,7 @@
         "OLD_MAP": 20,
         "steps": "no",
         "City": "San Francisco",
-        "Name": "La Stazione Coffee & Bar",
+        "Name": "La Stazione Coffee & Wine Bar",
         "ADA_PARK": "no",
         "AM_ICON": "coffee",
         "ADA_WC": "no",
@@ -1370,7 +1370,7 @@
         "City": "San Francisco",
         "Name": "Dogpatch Barber & Shave",
         "ADA_PARK": "no",
-        "AM_ICON": "dp",
+        "AM_ICON": "barbershop",
         "ADA_WC": "no",
         "info": "We’re more than just hair cutters, we are hair artists. We strive to push the standard of hairstyles by innovating new trends, and new styles, each and every day.",
         "State": "CA",
@@ -1438,7 +1438,7 @@
         "ADA_PARK": "no",
         "AM_ICON": "coffee",
         "ADA_WC": "yes",
-        "info": "Every cup is brewed “One Cup at a Time  crafting a perfect cup to every individual customer’s taste. You'll find over 20 customized blends made from high quality beans from around the world.",
+        "info": "Every cup is brewed &quot;One Cup at<br> a Time&quot; crafting a perfect cup to every individual customer’s taste. You'll find over 20 customized blends made from high quality beans from around the world.",
         "State": "CA",
         "POPCOLOR": "#ff6666",
         "Address": "1258 Minnesota St",
@@ -1469,7 +1469,7 @@
         "City": "San Francisco",
         "Name": "Minnesota Street Project",
         "ADA_PARK": "no",
-        "AM_ICON": "blank",
+        "AM_ICON": "gallery",
         "ADA_WC": "no",
         "info": "Offering affordable and economically sustainable spaces for art galleries, artists and related nonprofits. Inhabiting three warehouses in the Dogpatch neighborhood.",
         "State": "CA",
@@ -1627,21 +1627,6 @@
       },
       "id": "2e47890504ff00dc6ade81f176f8df01"
     },
-   
-   
-    
-   
-  
-   
-   
-   
-   
-   
-   
-   
-    
-   
-   
      {
       "type": "Feature",
       "properties": {
@@ -1651,7 +1636,7 @@
         "City": "San Francisco",
         "Name": "Center Hardware and Supply",
         "ADA_PARK": "no",
-        "AM_ICON": "shop",
+        "AM_ICON": "hardware",
         "ADA_WC": "no",
         "info": "Whether you need a single light bulb, or bulbs for the entire Bay Bridge, we have your back. Family owned business that operates daily with more than 60,000 items and specialized concierge-level service.",
         "State": "CA",
@@ -1674,39 +1659,6 @@
         "type": "Point"
       },
       "id": "736de25806ac30af4588826823439af5"
-    },
-     {
-      "type": "Feature",
-      "properties": {
-        "Zip": 94107,
-        "OLD_MAP": 99,
-        "steps": "no",
-        "City": "San Francisco",
-        "Name": "Dogpatch Technology",
-        "ADA_PARK": "no",
-        "AM_ICON": "dp",
-        "ADA_WC": "no",
-        "info": "na",
-        "State": "CA",
-        "POPCOLOR": "#ff6666",
-        "Address": "Not in Dogpatch",
-        "Amenities": "na",
-        "sponsor": "yes",
-        "TYPE": "stroll3",
-        "Website": "http://www.dogpatchtech.com",
-        "LONG": -122.38826,
-        "Category": "Needs & Wants",
-        "MAP_ID": 99,
-        "LAT": 37.760138
-      },
-      "geometry": {
-        "coordinates": [
-          -122.388496,
-          37.757072
-        ],
-        "type": "Point"
-      },
-      "id": "a992d5ce351ca6ed43dcba448a1c40e9"
     },
     {
       "type": "Feature",
