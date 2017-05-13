@@ -2,6 +2,22 @@
   var HUB;
   var zoomThreshold = 16;
   var curbcuts;
+
+  $(document).ready(function() {
+    //OPEN ABOUT DIALOG
+    $('#aboutModal').modal(); 
+  });
+
+  $(document).on('hide.bs.modal','#aboutModal', function () {
+    setTimeout(goHome, 2000);
+  //  map.flyTo({
+  //    center: [-122.389165,37.760],
+  //          zoom: 15,
+  //          speed: 0.1,
+  //          bearing: -5,
+ //           pitch: 15
+ //   });
+  });
   // This will let you use the .remove() function later on
   if (!('remove' in Element.prototype)) {
     Element.prototype.remove = function() {
@@ -26,14 +42,14 @@
   });
 
   map.on('load', function (evt) {
-      window.setTimeout(goHome, 3000);
+   //   window.setTimeout(goHome, 3000);
     });
 
     function goHome() {
       // debugger
       if (map.loaded()) {
         var p = map.getPitch();
-        console.log(p);
+     //   console.log(p);
         if (p > 0) {
           map.flyTo({
             center: [-122.389165,37.760],
