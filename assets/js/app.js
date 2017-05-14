@@ -2,6 +2,7 @@
   var HUB;
   var zoomThreshold = 16;
   var curbcuts;
+  var nosidewalks;
 
   $(document).ready(function() {
     //OPEN ABOUT DIALOG
@@ -235,7 +236,27 @@ map.on('click', function (currentFeature) {
     if (popUps[0]) popUps[0].remove();
 });
 
+// no sidewalks layer
+map.on('load', function () {
 
+    map.addLayer({
+        "id": "No Sidewalks",
+        "type": "fill",
+        "source": {
+            "type": "geojson",
+            "data": nosidewalks
+        },
+     "layout": {},
+           "paint": {
+            "fill-color": '#F6A26E',
+            "fill-opacity": 0.6
+        }
+        }
+        )
+    });
+
+
+// curb cuts layer
 map.on('load', function () {
 
     map.addLayer({
@@ -876,6 +897,7 @@ map.on('load', function() {
         }
     });
     });
+
 var toggleableLayerIds = [ 'Buildings', 'Curb Cuts'];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
