@@ -174,7 +174,7 @@ HUB.features.forEach(function(marker2) {
       link.href = '#';
       link.className = 'title';
       link.dataPosition = i;
-      link.innerHTML = '<img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/markers/'+ prop.MAP_ID + '.png" style="vertical-align: middle;margin-right:5px;">'+ prop.Name;     
+      link.innerHTML = '<img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/markers/'+ prop.MAP_ID + '.png" class="list_markers" style="vertical-align: middle;margin-right:5px;">'+ prop.Name;     
       
       var details = listing.appendChild(document.createElement('div'));
      // content = prop.Address + '<br>'+prop.Amenities;
