@@ -28,6 +28,13 @@
           background-repeat: no-repeat;
           transform: translate(28px, 56px, 0);
         }
+         .marker2 {
+          border: none;
+          cursor: pointer;
+          background-size: 40px 40px;
+          background-repeat: no-repeat;
+          transform: translate(28px, 56px, 0);
+        }
         #menu {
         background: #fff;
         position: absolute;
@@ -81,7 +88,9 @@
             cursor: pointer;
             font-size:12px;
             text-decoration:none;
-            background-image: url(https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/HUB.png);
+            background-image: url(https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/HUB_GREY.png);
+            background-size: 25px 25px;
+             background-position: center; 
             background-repeat: no-repeat;
             height: 28px;
             width: 28px;
@@ -106,7 +115,7 @@
     <div id="container">
       <div id="sidebar" class="col-sm-6">
         <div id="map" class="map"></div>
-        <nav id="menu"></nav>
+      <!--  <nav id="menu"></nav> -->
         <a href='#' id='export'></a>
 
       </div>
@@ -176,25 +185,26 @@
 
     <div class="modal fade" id="aboutModal">
         <div class="modal-dialog">
-            <div class="modal-content" style="background-color:#4d4d4e">
+            <div class="modal-content" style="background-color:#414140">
                 <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:white;margin-top:-10px;">&times;</button>
+                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:white;margin-top:-13px;">&times;</button>
                 </div>
                 <div class="modal-body">
          
      <div id="aboutTabsContent" class="tab-content" style="padding-top: 10px;">
         
          <div class="tab-pane fade active in" id="about">   
-                 <img  style="height:120px;margin:0px 0px 20px 0px" src="assets/img/DP_title.png" />
-                 <img  style="width:400px;margin:0px 0px 20px 0px" src="assets/img/DP_date.png" />
+                 <img  style="margin:0px 0px 20px 100px" src="assets/img/dp1.png" />
+                 <img  style="height:120px;margin:0px 0px 20px 30px" src="assets/img/DP_title.png" />
+                 <img  style="width:400px;margin:0px 0px 20px 80px" src="assets/img/DP_date.png" />
                  <p> MORE INFO COMING SOON...</p>
         </div>
                    
             <div class="modal-footer" >
             <div class="pull-left">   
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Explore Dogpatch</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-top:11px;">Explore Dogpatch</button>
             </div>
-             <a href="http://www.dvrpc.org" target="_new"><img class="dvrpclogo" style="margin:0px 0px 0px 0px" src="assets/img/ecity.png" /></a>
+             <a href="http://www.effortlesscity.com/" target="_new"><img class="ecitylogo" style="margin:0px 0px 0px 0px" src="assets/img/ecity.png" /></a>
                     </div>
 </div>
                 </div>

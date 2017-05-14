@@ -1706,7 +1706,7 @@
         "ADA_WC": "no",
         "info": "na",
         "State": "CA",
-        "POPCOLOR": "#ff6666",
+        "POPCOLOR": "#0094b4",
         "Address": "901 Illinois St",
         "Amenities": "Parking Lot",
         "sponsor": "no",

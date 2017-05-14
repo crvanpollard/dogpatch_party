@@ -99,8 +99,6 @@ HUB.features.forEach(function(marker2) {
     var el = document.createElement('div');
       el.id = "marker-" + i;
       el.className = 'marker';
-   //   el.style.left ='-15px';
-   //   el.style.top ='-46px';
       el.style.left ='-15px';
       el.style.top ='-26px';
       el.style.backgroundImage = 'url(https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/markers/'+marker.properties.MAP_ID + '.png)';
@@ -241,6 +239,7 @@ map.on('load', function () {
 
     map.addLayer({
         "id": "No Sidewalks",
+        "minzoom":16,
         "type": "fill",
         "source": {
             "type": "geojson",
@@ -261,6 +260,8 @@ map.on('load', function () {
 
     map.addLayer({
         "id": "Curb Cuts",
+        "maxzoom":21,
+        "minzoom":16,
         "type": "circle",
         "source": {
             "type": "geojson",
@@ -370,8 +371,9 @@ map.on('load', function () {
     {
       "type": "Feature",
       "properties": {
-        "walking": "hype1",
-        "type": "solid"
+      "walking": "hype1",
+      "type": "solid",
+      "color": "#66cccc"
       },
       "geometry": {
         "coordinates": [
@@ -882,7 +884,7 @@ map.on('load', function() {
         'source-layer': 'building',
         'filter': ['==', 'extrude', 'true'],
         'type': 'fill-extrusion',
-        'minzoom': 14,
+      //  'minzoom': 14,
         'paint': {
             'fill-extrusion-color': '#aaa',
             'fill-extrusion-height': {
@@ -897,8 +899,8 @@ map.on('load', function() {
         }
     });
     });
-
-var toggleableLayerIds = [ 'Buildings', 'Curb Cuts'];
+/*
+var toggleableLayerIds = [ 'Buildings'];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
@@ -927,3 +929,4 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
     var layers = document.getElementById('menu');
     layers.appendChild(link);
 }
+*/

@@ -33,6 +33,9 @@
     #accordion {
       overflow-y: auto;
     }
+    .modal-footer {
+    padding: 5px;
+  }
     #about{
       color:white;
     }
@@ -162,6 +165,13 @@
   margin:10px 5px 5px 5px;
   text-align: center;
   min-height: 35px;
+}
+#card > a ,#card2 > a {
+  color: #ffffff;
+  font-weight: bold;
+}
+#card > a:hover, #card2 > a:hover {
+color:#101010; 
 }
 #cardped {
     color: #fff;
