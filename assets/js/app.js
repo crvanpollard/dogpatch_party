@@ -2,6 +2,7 @@
   var HUB;
   var zoomThreshold = 16;
   var curbcuts;
+  var nosidewalks;
 
   $(document).ready(function() {
     //OPEN ABOUT DIALOG
@@ -98,8 +99,6 @@ HUB.features.forEach(function(marker2) {
     var el = document.createElement('div');
       el.id = "marker-" + i;
       el.className = 'marker';
-   //   el.style.left ='-15px';
-   //   el.style.top ='-46px';
       el.style.left ='-15px';
       el.style.top ='-26px';
       el.style.backgroundImage = 'url(https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/markers/'+marker.properties.MAP_ID + '.png)';
@@ -173,7 +172,7 @@ HUB.features.forEach(function(marker2) {
       link.href = '#';
       link.className = 'title';
       link.dataPosition = i;
-      link.innerHTML = '<img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/markers/'+ prop.MAP_ID + '.png" style="vertical-align: middle;margin-right:5px;">'+ prop.Name;     
+      link.innerHTML = '<img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/markers/'+ prop.MAP_ID + '.png" class="list_markers" style="vertical-align: middle;margin-right:5px;">'+ prop.Name;     
       
       var details = listing.appendChild(document.createElement('div'));
      // content = prop.Address + '<br>'+prop.Amenities;
@@ -235,11 +234,34 @@ map.on('click', function (currentFeature) {
     if (popUps[0]) popUps[0].remove();
 });
 
+// no sidewalks layer
+map.on('load', function () {
 
+    map.addLayer({
+        "id": "No Sidewalks",
+        "minzoom":16,
+        "type": "fill",
+        "source": {
+            "type": "geojson",
+            "data": nosidewalks
+        },
+     "layout": {},
+           "paint": {
+            "fill-color": '#F6A26E',
+            "fill-opacity": 0.6
+        }
+        }
+        )
+    });
+
+
+// curb cuts layer
 map.on('load', function () {
 
     map.addLayer({
         "id": "Curb Cuts",
+        "maxzoom":21,
+        "minzoom":16,
         "type": "circle",
         "source": {
             "type": "geojson",
@@ -349,8 +371,9 @@ map.on('load', function () {
     {
       "type": "Feature",
       "properties": {
-        "walking": "hype1",
-        "type": "solid"
+      "walking": "hype1",
+      "type": "solid",
+      "color": "#66cccc"
       },
       "geometry": {
         "coordinates": [
@@ -861,7 +884,7 @@ map.on('load', function() {
         'source-layer': 'building',
         'filter': ['==', 'extrude', 'true'],
         'type': 'fill-extrusion',
-        'minzoom': 14,
+      //  'minzoom': 14,
         'paint': {
             'fill-extrusion-color': '#aaa',
             'fill-extrusion-height': {
@@ -876,7 +899,8 @@ map.on('load', function() {
         }
     });
     });
-var toggleableLayerIds = [ 'Buildings', 'Curb Cuts'];
+/*
+var toggleableLayerIds = [ 'Buildings'];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
@@ -905,3 +929,4 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
     var layers = document.getElementById('menu');
     layers.appendChild(link);
 }
+*/
