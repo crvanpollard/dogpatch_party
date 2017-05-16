@@ -1,1 +1,0 @@
-var HUB = {"type":"FeatureCollection","features":[{"geometry": {"type": "Point", "coordinates": [-122.390718, 37.757621]}, "type": "Feature", "id": 1, "properties": {"ICON": "HUB_GREY"}}]};
