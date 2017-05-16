@@ -1,3 +1,5 @@
+var walking_dash = {
+  "features": [
 {
   "type": "Feature",
   "properties": {
@@ -121,3 +123,6 @@
     "type": "LineString"
   }
 }
+ ],
+  "type": "FeatureCollection"
+};
