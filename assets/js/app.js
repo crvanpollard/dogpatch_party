@@ -84,7 +84,7 @@ HUB.features.forEach(function(marker2) {
   // This adds the data to the map
   map.on('load', function (e) {
     // This is where your '.addLayer()' used to be, instead add only the source without styling a layer
-    map.addSource("places", {
+    map.addSource("places",{
       "type": "geojson",
       "data": stores
     });
@@ -247,11 +247,12 @@ map.on('load', function () {
         },
      "layout": {},
            "paint": {
-            "fill-color": '#F6A26E',
+            "fill-color": 'hsl(0, 0%, 52%)',
             "fill-opacity": 0.6
+          //  "fill-pattern":'triangle-11'
         }
-        }
-        )
+            }, 'water');
+        
     });
 
 
@@ -881,6 +882,7 @@ map.on('load', function() {
     map.addLayer({
         'id': 'Buildings',
         'source': 'composite',
+        'minzoom':14,
         'source-layer': 'building',
         'filter': ['==', 'extrude', 'true'],
         'type': 'fill-extrusion',
