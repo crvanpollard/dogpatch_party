@@ -23,7 +23,7 @@
       <script src="assets/data/no_sidewalks.js"></script>
       <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.js'></script>
       <style>
-      .marker {
+      .marker{
           border: none;
           cursor: pointer;
           background-size: 22px 22px;
@@ -32,8 +32,14 @@
         }
          .marker2 {
           border: none;
-          cursor: pointer;
+         /* cursor: pointer; */
           background-size: 40px 40px;
+          background-repeat: no-repeat;
+          transform: translate(28px, 56px, 0);
+        }
+        .marker3 {
+          border: none;
+          background-size: 22px 22px;
           background-repeat: no-repeat;
           transform: translate(28px, 56px, 0);
         }
@@ -100,6 +106,30 @@
           #export:hover{
             background-color: #ddd;
           }
+          .legend {
+            background-color: #fff;
+            border-radius: 3px;
+            bottom: 40px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            padding: 10px;
+            position: absolute;
+            right: 10px;
+            width: 200px;
+            z-index: 1;
+            }
+
+            .legend h4 {
+            margin: 0 0 10px;
+            }
+
+            .legend div span {
+            border-radius: 50%;
+            display: inline-block;
+            height: 10px;
+            margin-right: 5px;
+            width: 10px;
+            }
       </style>
   </head>
   
@@ -118,6 +148,32 @@
       <div id="sidebar" class="col-sm-6">
         <div id="map" class="map"></div>
       <!--  <nav id="menu"></nav> -->
+ <!--     <div id='state-legend' class='legend'>
+    <h4>Population</h4>
+    <div><span style='background-color: #723122'></span>25,000,000</div>
+    <div><span style='background-color: #8B4225'></span>10,000,000</div>
+    <div><span style='background-color: #A25626'></span>7,500,000</div>
+    <div><span style='background-color: #B86B25'></span>5,000,000</div>
+    <div><span style='background-color: #CA8323'></span>2,500,000</div>
+    <div><span style='background-color: #DA9C20'></span>1,000,000</div>
+    <div><span style='background-color: #E6B71E'></span>750,000</div>
+    <div><span style='background-color: #EED322'></span>500,000</div>
+    <div><span style='background-color: #F2F12D'></span>0</div>
+</div>
+
+<div id='county-legend' class='legend' style='display: none;'>
+    <h4>Population</h4>
+    <div><span style='background-color: #723122'></span>1,000,000</div>
+    <div><span style='background-color: #8B4225'></span>500,000</div>
+    <div><span style='background-color: #A25626'></span>100,000</div>
+    <div><span style='background-color: #B86B25'></span>50,000</div>
+    <div><span style='background-color: #CA8323'></span>10,000</div>
+    <div><span style='background-color: #DA9C20'></span>5,000</div>
+    <div><span style='background-color: #E6B71E'></span>1,000</div>
+    <div><span style='background-color: #EED322'></span>100</div>
+    <div><span style='background-color: #F2F12D'></span>0</div>
+</div>
+-->
         <a href='#' id='export'></a>
 
       </div>
@@ -196,17 +252,18 @@
      <div id="aboutTabsContent" class="tab-content" style="padding-top: 10px;">
         
          <div class="tab-pane fade active in" id="about">   
-                 <img  style="margin:0px 0px 20px 100px" src="assets/img/dp1.png" />
-                 <img  style="height:120px;margin:0px 0px 20px 30px" src="assets/img/DP_title.png" />
-                 <img  style="width:400px;margin:0px 0px 20px 80px" src="assets/img/DP_date.png" />
-                 <p> MORE INFO COMING SOON...</p>
+                 <img  class="dplogo"  src="assets/img/dp1.png" />
+                 <img  class="dptitle" src="assets/img/DP_title.png" />
+                 <img  class="dpdate"  src="assets/img/DP_date.png" />
         </div>
                    
             <div class="modal-footer" >
-            <div class="pull-left">   
-            <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-top:11px;">Explore Dogpatch</button>
+            <div class="pull-right">   
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="dpbutton">Explore Dogpatch</button>
             </div>
-             <a href="http://www.effortlesscity.com/" target="_new"><img class="ecitylogo" style="margin:0px 0px 0px 0px" src="assets/img/ecity.png" /></a>
+            <div class="pull-left">
+             <a href="http://www.effortlesscity.com/" target="_new"><img class="ecitylogo" src="assets/img/ecity.png" /></a>
+           </div>
                     </div>
 </div>
                 </div>

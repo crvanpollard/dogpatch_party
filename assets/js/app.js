@@ -1,6 +1,6 @@
   var stores; 
   var HUB;
-  var zoomThreshold = 13;
+  var zoomThreshold = 16;
   var curbcuts;
   var nosidewalks;
   var walking, walking_dash;
@@ -57,12 +57,12 @@
 HUB.features.forEach(function(marker2) {
     // create a DOM element for the marker
     var el2 = document.createElement('div');
-    el2.className = 'marker2';
+    el2.className = marker2.properties.CLASS;
     el2.style.backgroundImage = 'url(https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/'+marker2.properties.ICON + '.png)';
     el2.style.width = marker2.properties.Width;
     el2.style.height = marker2.properties.Height;
-  //  el2.addEventListener('click', function() {
-  //      window.alert(marker2.properties.message);
+//    el2.addEventListener('click', function() {
+    //    window.alert(marker2.properties.ICON);
   //  });
 
     // add marker to map
@@ -81,13 +81,6 @@ HUB.features.forEach(function(marker2) {
     // Initialize the list
     buildLocationList(stores);
   });
-
- // map.on('zoom', function() {
- //   if (map.getZoom() < zoomThreshold) {
- //     alert("your over the Threshold");
- //   } else {
- //   }
- // });
   
   // This is where your interactions with the symbol layer used to be
   // Now you have interactions with DOM markers instead
@@ -180,6 +173,9 @@ HUB.features.forEach(function(marker2) {
        if (prop.ADA_PARK ==='no'){ var Parking = '';}
       else { var Parking =  '<img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_parking.png">';}
 
+    if (prop.steps ==='no'){ var STEPS = '';}
+      else { var STEPS =  '<img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/steps2.png">';}
+
       content = '<div class="address_info">'
                 + prop.Address 
                 +'</div>'
@@ -188,6 +184,7 @@ HUB.features.forEach(function(marker2) {
                 + '.png" >'
                 + WC
                 + Parking
+                + STEPS
                 +'</div>';
                
 
@@ -212,6 +209,18 @@ HUB.features.forEach(function(marker2) {
 
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl(),['top-left']);
+
+/*
+var stateLegendEl = document.getElementById('state-legend');
+var countyLegendEl = document.getElementById('county-legend');
+map.on('zoom', function() {
+    if (map.getZoom() < zoomThreshold) {
+        stateLegendEl.style.display = 'none';
+    } else {
+        stateLegendEl.style.display = 'block';
+    }
+});
+*/
 
 document.getElementById('export').addEventListener('click', function () {
     // Fly to a random location by offsetting the point -74.50, 40
