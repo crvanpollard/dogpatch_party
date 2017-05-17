@@ -173,15 +173,13 @@ HUB.features.forEach(function(marker2) {
    //   if (prop.ADA_PARK ==='no'){ var Parking = '';}
    //   else { var Parking =  '<img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_parking.png">';}
 
-  //    if (prop.steps ==='no'){ var STEPS = '';}
-  //    else { var STEPS =  '<img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/steps2.png">';}
+      if (prop.amshow ==='no'){ var amshow = '';}
+      else { var amshow ='<div class="amen_icons"> <img class="'+ prop.ICON_CLASS +'" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/'+ prop.AM_ICON + '.png" >';}
 
       content = '<div class="address_info">'
                 + prop.Address 
                 +'</div>'
-                + '<div class="amen_icons"> <img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/'
-                + prop.AM_ICON 
-                + '.png" >'
+                + amshow
           //      + WC
           //      + Parking
          //       + STEPS
