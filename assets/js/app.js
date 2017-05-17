@@ -167,14 +167,14 @@ HUB.features.forEach(function(marker2) {
       var details = listing.appendChild(document.createElement('div'));
      // content = prop.Address + '<br>'+prop.Amenities;
       
-      if (prop.ADA_WC ==='no'){ var WC = '';}
-      else { var WC =  '<img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_wc.png">';}
+   //   if (prop.ADA_WC ==='no'){ var WC = '';}
+   //   else { var WC =  '<img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_wc.png">';}
 
-       if (prop.ADA_PARK ==='no'){ var Parking = '';}
-      else { var Parking =  '<img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_parking.png">';}
+   //   if (prop.ADA_PARK ==='no'){ var Parking = '';}
+   //   else { var Parking =  '<img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/ada_parking.png">';}
 
-    if (prop.steps ==='no'){ var STEPS = '';}
-      else { var STEPS =  '<img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/steps2.png">';}
+  //    if (prop.steps ==='no'){ var STEPS = '';}
+  //    else { var STEPS =  '<img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/steps2.png">';}
 
       content = '<div class="address_info">'
                 + prop.Address 
@@ -182,9 +182,9 @@ HUB.features.forEach(function(marker2) {
                 + '<div class="amen_icons"> <img class="list_icons" src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/amenities/'
                 + prop.AM_ICON 
                 + '.png" >'
-                + WC
-                + Parking
-                + STEPS
+          //      + WC
+          //      + Parking
+         //       + STEPS
                 +'</div>';
                
 
