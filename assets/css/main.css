@@ -32,6 +32,7 @@
     }
     #accordion {
       overflow-y: auto;
+      margin-top: 10px;
     }
     .modal-footer {
     padding: 5px;
@@ -155,16 +156,24 @@
     .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
     border-bottom-color: #91c949;
     }
-/* Sidebar Layout */    
+/* Sidebar Layout */
+#card_legend {
+  color: #4c4d4f;
+  background-color: #f2f0f7;
+  border-color: #4c4d4f;
+  font-size: 20px;
+  height: 40px;
+}    
 #card {
   background-color: #66cccc;
   border-color: #66cccc;
   color: #ffffff;
   font-size: 20px;
-  padding-left: 15px;
-  margin:10px 5px 5px 5px;
+ /*   padding-left: 15px;
+margin:10px 5px 5px 5px; */
   text-align: center;
   min-height: 35px;
+  padding:3px 0px 0px 0px;
 }
 #card > a ,#card2 > a {
   color: #ffffff;
@@ -194,10 +203,11 @@ color:#101010;
   border-color: #ff6666;
   color: #ffffff;
   font-size: 20px;
-  padding-left: 15px;
-  margin:10px 5px 5px 5px;
+ /* padding-left: 15px;
+  margin:10px 5px 5px 5px; */
   text-align: center;
   min-height: 35px;
+   padding:3px 0px 0px 0px;
 }
 .one {
   color:#428bca;
@@ -223,6 +233,7 @@ color:#101010;
 }
 .dplogo{
   margin:0px 0px 20px 100px;
+
 }
 .dptitle{
 height:120px;
@@ -234,12 +245,12 @@ margin:0px 0px 20px 80px;
 }
 #dpbutton{
   background-color:#ff6666;
-  margin-top:18px;
+  margin-top:70px;
   border-color: #ffb2b2;
 }
 .ecitylogo{
   margin:5px 0px 0px 0px;
-  height:60px;
+  height:150px;
 }
 @media (max-width: 1024px){
                  .listings .item .title {
