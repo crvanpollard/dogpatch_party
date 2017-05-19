@@ -97,8 +97,8 @@ var HUB = {
     "Address": "3rd  St & 23rd St",
     "ICON": "train","Width":"26px","Height":"26px","CLASS":"marker3"
   }
-},
-  {
+}
+/*  {
   "geometry": {
     "coordinates": [
       -122.389793,
@@ -108,7 +108,7 @@ var HUB = {
   },
   "type": "Feature",
   "properties": {
-    "Category": "transit",
+    "Category": "park",
     "Address": "MS Project Park",
     "ICON": "park","Width":"26px","Height":"26px","CLASS":"marker3"
   }
@@ -123,7 +123,7 @@ var HUB = {
   },
   "type": "Feature",
   "properties": {
-    "Category": "transit",
+    "Category": "park",
     "Address": "Mariposa Park",
     "ICON": "park","Width":"26px","Height":"26px","CLASS":"marker3"
   }
@@ -141,6 +141,36 @@ var HUB = {
     "Address": "Woods Yard Park",
     "ICON": "park","Width":"26px","Height":"26px","CLASS":"marker3"
   }
+},
+{
+  "geometry": {
+    "coordinates": [
+      -122.383502,
+      37.754403
+    ],
+    "type": "Point"
+  },
+  "type": "Feature",
+  "properties": {
+    "Category": "park",
+    "Address": "Warm Water Cove",
+    "ICON": "park","Width":"26px","Height":"26px","CLASS":"marker3"
+  }
+},{
+  "geometry": {
+    "coordinates": [
+      -122.391044,
+   37.761244
+    ],
+    "type": "Point"
+  },
+  "type": "Feature",
+  "properties": {
+    "Category": "park",
+    "Address": "Esprit Park",
+    "ICON": "park","Width":"26px","Height":"26px","CLASS":"marker3"
+  }
 }
+*/
 	]
 };

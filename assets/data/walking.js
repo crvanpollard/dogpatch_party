@@ -86,7 +86,8 @@
       "type": "Feature",
       "properties": {
         "walking": "hype1",
-        "type": "solid"
+        "type": "solid",
+        "color": "#66cccc"
       },
       "geometry": {
         "coordinates": [

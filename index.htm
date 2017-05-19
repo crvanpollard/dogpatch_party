@@ -50,6 +50,7 @@
       <script src="assets/data/walking.js"></script>
       <script src="assets/data/curbcuts.js"></script>
       <script src="assets/data/no_sidewalks.js"></script>
+      <script src="assets/data/parks.js"></script>
       <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.js'></script>
       <style>
       .marker{
@@ -138,20 +139,19 @@
           .legend {
             background-color: #fff;
             border-radius: 3px;
-            bottom: 40px;
+            bottom: 30px;
+            right: 19px;
+            width: 220px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.10);
             font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
             padding: 10px;
             position: absolute;
-            right: 10px;
-            width: 200px;
             z-index: 1;
+            opacity: .95;
             }
-
             .legend h4 {
             margin: 0 0 10px;
             }
-
             .legend div span {
             border-radius: 50%;
             display: inline-block;
@@ -159,14 +159,12 @@
             margin-right: 5px;
             width: 10px;
             }
-            img.bottom {
-            vertical-align: text-bottom;
-            margin:5px 10px 0px 40px;
-            height:24px;
-            width:24px;
-            color:#4c4d4f
+            .legend div span2 {
+            display: inline-block;
+            height: 5px;
+            margin-right: 5px;
+            width: 40px;
             }
-           
       </style>
   </head>
   
@@ -175,17 +173,21 @@
     <div id="container">
       <div id="sidebar" class="col-sm-5">
         <div id="map" class="map"></div>
- <!--     <div id='state-legend' class='legend'>
-    <h4>Population</h4>
-    <div><span style='background-color: #723122'></span>25,000,000</div>
-    <div><span style='background-color: #8B4225'></span>10,000,000</div>
-</div>
+          <div id='state-legend' class='legend'>
+            <div><img src='assets/img/amenities/sponsor.png' style='height:13px;margin-left: 15px;'><span></span>Event Sponsor</div>
+            <div><img src='assets/img/amenities/business.png' style='height:13px;margin-left: 15px;'><span></span>Local Business</div>
+            <div><span2 style='background-color: #66cccc'></span2>Walkabout (Upbeat Loop)</div>
+            <div><span2 style='background-color: #FF6666'></span2>Stroll (Relax Loop)</div>
+          </div>
 
-<div id='county-legend' class='legend' style='display: none;'>
-    <h4>Population</h4>
-    <div><span style='background-color: #723122'></span>1,000,000</div>
-    <div><span style='background-color: #8B4225'></span>500,000</div>
--->
+          <div id='county-legend' class='legend' style='display: none;'>
+             <div><img src='assets/img/amenities/sponsor.png' style='height:13px;margin-left: 15px;'><span style='margin-right: 12px;'></span>Event Sponsor</div>
+            <div><img src='assets/img/amenities/business.png' style='height:13px;margin-left: 15px;'><span style='margin-right: 12px;'></span>Local Business</div>
+            <div><span2 style='background-color: #66cccc;margin-right: 10px;'></span2>Walkabout (Upbeat Loop)</div>
+            <div><span2 style='background-color: #FF6666;margin-right: 10px;'></span2>Stroll (Relax Loop)</div>
+            <div style="margin-left: 15px;"><span style='background-color: #FEE08B;margin-right:25px;'></span>Curb Cut</div>
+            <div><img src='assets/img/noside.png' style='height:16px;margin-left:5px'><span style='margin-right: 5px;'></span>No Sidewalk</div>
+          </div>
         <a href='#' id='export'></a>
 
       </div>
@@ -205,7 +207,7 @@
          <div class="panel-group" id="accordion">
                         <div class="panel panel-default">
                             <div class="panel-heading" id="card">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#overlay-layers">Walkabout --- Upbeat Loop
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#overlay-layers">Walkabout (Upbeat Loop)
                                 </a>
                             </div>
                             <div id="overlay-layers" class="panel-collapse collapse in">
@@ -232,7 +234,7 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading" id="card2">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#overlay-layers2">Stroll --- Relax Loop
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#overlay-layers2">Stroll (Relax Loop)
                                 </a>
                             </div>
                             <div id="overlay-layers2" class="panel-collapse collapse in">
@@ -267,11 +269,9 @@
     <div class="modal fade" id="aboutModal">
         <div class="modal-dialog">
             <div class="modal-content" style="background-color:#414140">
-                <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:white;margin-top:-13px;">&times;</button>
-                </div>
+               
                 <div class="modal-body">
-         
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:white;margin-top:-13px;">&times;</button>
      <div id="aboutInfo">
         
          <p>   
