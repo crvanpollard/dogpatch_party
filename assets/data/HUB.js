@@ -97,6 +97,50 @@ var HUB = {
     "Address": "3rd  St & 23rd St",
     "ICON": "train","Width":"26px","Height":"26px","CLASS":"marker3"
   }
+},
+  {
+  "geometry": {
+    "coordinates": [
+      -122.389793,
+     37.753826
+    ],
+    "type": "Point"
+  },
+  "type": "Feature",
+  "properties": {
+    "Category": "transit",
+    "Address": "MS Project Park",
+    "ICON": "park","Width":"26px","Height":"26px","CLASS":"marker3"
+  }
+  }, 
+  {
+  "geometry": {
+    "coordinates": [
+      -122.391159,
+   37.764575
+    ],
+    "type": "Point"
+  },
+  "type": "Feature",
+  "properties": {
+    "Category": "transit",
+    "Address": "Mariposa Park",
+    "ICON": "park","Width":"26px","Height":"26px","CLASS":"marker3"
+  }
+},{
+  "geometry": {
+    "coordinates": [
+      -122.390331,
+      37.757630
+    ],
+    "type": "Point"
+  },
+  "type": "Feature",
+  "properties": {
+    "Category": "park",
+    "Address": "Woods Yard Park",
+    "ICON": "park","Width":"26px","Height":"26px","CLASS":"marker3"
+  }
 }
 	]
 };
