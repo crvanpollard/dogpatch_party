@@ -22,6 +22,14 @@
     };
   }
 
+   $(function () {
+      $('.glyphicon').unbind('click');
+      $('.glyphicon').click(function (e) {
+      $(this).toggleClass('glyphicon glyphicon-plus glyphicon glyphicon-minus');
+      $('.content-one').slideToggle('slow'); return false;
+  });
+    });
+
   mapboxgl.accessToken = 'pk.eyJ1IjoiY3J2YW5wb2xsYXJkIiwiYSI6ImNqMHdvdnd5MTAwMWEycXBocm4zbXVjZm8ifQ.3zjbFccILu6mL7cOTtp40A';
 
   // This adds the map
@@ -70,7 +78,7 @@ HUB.features.forEach(function(marker2) {
     new mapboxgl.Marker(el2)
         .setLngLat(marker2.geometry.coordinates)
         .addTo(map)
-   });     
+   });    
 
   // This adds the data to the map
   map.on('load', function (e) {
@@ -82,6 +90,7 @@ HUB.features.forEach(function(marker2) {
     // Initialize the list
     buildLocationList(stores);
   });
+
   
   // This is where your interactions with the symbol layer used to be
   // Now you have interactions with DOM markers instead
@@ -99,7 +108,7 @@ HUB.features.forEach(function(marker2) {
     // Add markers to the map at all points
     new mapboxgl.Marker(el)
         .setLngLat(marker.geometry.coordinates)
-        .addTo(map); 
+        .addTo(map);   
 
     el.addEventListener('click', function(e){
         // 1. Fly to the point
@@ -125,29 +134,52 @@ HUB.features.forEach(function(marker2) {
   }
 
   function createPopUp(currentFeature) {
-  /*  if (currentFeature.properties.MAP_ID < 10) {
+    var mq = window.matchMedia( "(min-width: 500px)" );
+      if (mq.matches) {
+        {
+          var popUps = document.getElementsByClassName('mapboxgl-popup');
+        if (popUps[0]) popUps[0].remove();
+
+          if (currentFeature.properties.info ==='na'){ var info2 = '';}
+          else { var info2 =  currentFeature.properties.info +'<br>';}
+
+
+          if (currentFeature.properties.Website ==='na'){ var web = '';}
+          else { var web =  '<a class="one" href="' + currentFeature.properties.Website+'" target="_new">Visit the website</a>';}
+
+
+        var popup = new mapboxgl.Popup({closeOnClick: false})
+              .setLngLat(currentFeature.geometry.coordinates)
+              .setHTML('<h3 style="padding-bottom:1px;background:'+ currentFeature.properties.POPCOLOR +'">'+ currentFeature.properties.Name +'<br><p class="addr">'+currentFeature.properties.Address + '</font></h3>' + 
+                '<h4>' + info2 + web +'</h4>')
+              .addTo(map);
+        }
+           
+    } 
+    else 
+        {
+      var popUps = document.getElementsByClassName('mapboxgl-popup');
+        if (popUps[0]) popUps[0].remove();
+
+              if (currentFeature.properties.info ==='na'){ var info2 = '';}
+          else { var info2 =  currentFeature.properties.info +'<br>';}
+
+          if (currentFeature.properties.Website ==='na'){ var web = '';}
+          else { var web =  '<a class="one" href="' + currentFeature.properties.Website+'" target="_new">Visit the website</a>';}
+
+            
+          var title = '<h3 style="padding-bottom:1px;padding-top:10px;background:'+ currentFeature.properties.POPCOLOR +'"><img src="https://raw.githubusercontent.com/crvanpollard/mapbox_listings/master/assets/img/markers/'+ currentFeature.properties.MAP_ID + '.png" class="list_markersINFO" style="vertical-align: middle;margin-right:5px;">'+currentFeature.properties.Name +'<br><p class="addr">'+currentFeature.properties.Address + '</font></h3>';
+          var content = '<h4>' + info2 + web +'</h4>';
+
+          // Modal Content
+          $("#marker_title").html(title);
+          $("#marker_content").html(content);
+
+          $('#infoModal').modal('show');}
           
-    } else {
-          alert("Over 10");
-      } */
+        // alert("NOPE");
+        }
 
-    var popUps = document.getElementsByClassName('mapboxgl-popup');
-    if (popUps[0]) popUps[0].remove();
-
-      if (currentFeature.properties.info ==='na'){ var info2 = '';}
-      else { var info2 =  currentFeature.properties.info +'<br>';}
-
-
-      if (currentFeature.properties.Website ==='na'){ var web = '';}
-      else { var web =  '<a class="one" href="' + currentFeature.properties.Website+'" target="_new">Visit the website</a>';}
-
-
-    var popup = new mapboxgl.Popup({closeOnClick: false})
-          .setLngLat(currentFeature.geometry.coordinates)
-          .setHTML('<h3 style="padding-bottom:1px;background:'+ currentFeature.properties.POPCOLOR +'">'+ currentFeature.properties.Name +'<br><p class="addr">'+currentFeature.properties.Address + '</font></h3>' + 
-            '<h4>' + info2 + web +'</h4>')
-          .addTo(map);
-  }
 
   function buildLocationList(data) {
     for (i = 0; i < data.features.length; i++) {
@@ -185,8 +217,6 @@ HUB.features.forEach(function(marker2) {
           //      + Parking
          //       + STEPS
                 +'</div>';
-               
-
       details.innerHTML = content;
 
       link.addEventListener('click', function(e){
@@ -211,7 +241,7 @@ map.addControl(new mapboxgl.NavigationControl(),['top-left']);
 map.addControl(new mapboxgl.AttributionControl(),'top-right');
 
 
-var stateLegendEl = document.getElementById('state-legend');
+var stateLegendEl = document.getElementById('extent');
 var countyLegendEl = document.getElementById('county-legend');
 map.on('zoom', function() {
     if (map.getZoom() > zoomThreshold) {
@@ -220,9 +250,9 @@ map.on('zoom', function() {
     } else {
         countyLegendEl.style.display = 'none';
         stateLegendEl.style.display = 'block';
+
     }
 });
-
 
 document.getElementById('export').addEventListener('click', function () {
     // Fly to a random location by offsetting the point -74.50, 40
