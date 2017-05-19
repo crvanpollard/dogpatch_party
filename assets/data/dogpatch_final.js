@@ -1111,7 +1111,7 @@
         "info": "Handmade confections and single-origin chocolate, blended together to create complex tasting experiences.",
         "State": "CA", "ICON_CLASS":"list_icons",
         "POPCOLOR": "#ff6666",
-        "Address": "807 22nd St",
+        "Address": "801 22nd St",
         "Amenities": "Restaurant",
         "sponsor": "yes",
         "TYPE": "stroll1",

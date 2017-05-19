@@ -33,7 +33,8 @@
     center: [ -122.389165,37.756291], 
     bearing: 20, // Rotate Philly ~9° off of north, thanks Billy Penn.
     pitch: 50,
-    zoom: 15
+    zoom: 15,
+     attributionControl: false
   });
 
     function goHome() {
@@ -207,18 +208,21 @@ HUB.features.forEach(function(marker2) {
 
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl(),['top-left']);
+map.addControl(new mapboxgl.AttributionControl(),'top-right');
 
-/*
+
 var stateLegendEl = document.getElementById('state-legend');
 var countyLegendEl = document.getElementById('county-legend');
 map.on('zoom', function() {
-    if (map.getZoom() < zoomThreshold) {
+    if (map.getZoom() > zoomThreshold) {
         stateLegendEl.style.display = 'none';
+        countyLegendEl.style.display = 'block';
     } else {
+        countyLegendEl.style.display = 'none';
         stateLegendEl.style.display = 'block';
     }
 });
-*/
+
 
 document.getElementById('export').addEventListener('click', function () {
     // Fly to a random location by offsetting the point -74.50, 40
@@ -238,6 +242,27 @@ map.on('click', function (currentFeature) {
     if (popUps[0]) popUps[0].remove();
 });
 
+// parks layer
+map.on('load', function () {
+
+    map.addLayer({
+        "id": "Parks",
+     //   "minzoom":16,
+        "type": "fill",
+        "source": {
+            "type": "geojson",
+            "data": parks
+        },
+     "layout": {},
+           "paint": {
+            "fill-color": 'hsl(100, 59%, 76%)',
+            "fill-opacity": 0.6
+          //  "fill-pattern":'triangle-11'
+        }
+            }, 'road-path');
+        
+    });
+
 // no sidewalks layer
 map.on('load', function () {
 
@@ -251,9 +276,10 @@ map.on('load', function () {
         },
      "layout": {},
            "paint": {
-            "fill-color": 'hsl(0, 0%, 52%)',
-            "fill-opacity": 0.6
-          //  "fill-pattern":'triangle-11'
+          //  "fill-color": 'hsl(0, 0%, 52%)',
+            "fill-color": 'hsl(21, 67%, 67%)',
+            "fill-opacity": 0.6,
+            "fill-pattern":'dot-10'
         }
             }, 'water');
         
