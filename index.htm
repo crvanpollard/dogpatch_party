@@ -139,8 +139,8 @@
           .legend {
             background-color: #fff;
             border-radius: 3px;
-            bottom: 30px;
-            right: 19px;
+            bottom: 35px;
+            right: 20px;
             width: 220px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.10);
             font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -173,14 +173,21 @@
     <div id="container">
       <div id="sidebar" class="col-sm-5">
         <div id="map" class="map"></div>
-          <div id='state-legend' class='legend'>
+      
+        <div id='main_legend' class='legend'>
+            <div class="expand-one"><i class="glyphicon glyphicon-minus"></i>&nbsp;&nbsp;Legend</div> 
+          <div id='state-legend'>
+            <div class="content-one">
+            <div id='extent'>  
             <div><img src='assets/img/amenities/sponsor.png' style='height:13px;margin-left: 15px;'><span></span>Event Sponsor</div>
             <div><img src='assets/img/amenities/business.png' style='height:13px;margin-left: 15px;'><span></span>Local Business</div>
             <div><span2 style='background-color: #66cccc'></span2>Walkabout (Upbeat Loop)</div>
             <div><span2 style='background-color: #FF6666'></span2>Stroll (Relax Loop)</div>
           </div>
-
-          <div id='county-legend' class='legend' style='display: none;'>
+            </div>
+          </div>
+          <div id='county-legend' style='display: none;'>
+            <div class="content-one">
              <div><img src='assets/img/amenities/sponsor.png' style='height:13px;margin-left: 15px;'><span style='margin-right: 12px;'></span>Event Sponsor</div>
             <div><img src='assets/img/amenities/business.png' style='height:13px;margin-left: 15px;'><span style='margin-right: 12px;'></span>Local Business</div>
             <div><span2 style='background-color: #66cccc;margin-right: 10px;'></span2>Walkabout (Upbeat Loop)</div>
@@ -188,22 +195,12 @@
             <div style="margin-left: 15px;"><span style='background-color: #FEE08B;margin-right:25px;'></span>Curb Cut</div>
             <div><img src='assets/img/noside.png' style='height:16px;margin-left:5px'><span style='margin-right: 5px;'></span>No Sidewalk</div>
           </div>
+          </div>
+       </div>   
         <a href='#' id='export'></a>
-
       </div>
- 
+
       <div id="sidebar2" class="col-sm-7">
-      <!--    <div class="panel panel-primary" id="card_legend">
-               <div class="col-sm-6">
-                <div><img src="assets/img/amenities/sponsor.png" class="bottom">event sponsor </div>
-                 </div>
-
-             <div class="col-sm-6 col-xs-6">
-                 <div><img src="assets/img/amenities/business.png" class="bottom">local business </div>
-              </div>
-
-             </div>
-      -->
          <div class="panel-group" id="accordion">
                         <div class="panel panel-default">
                             <div class="panel-heading" id="card">
@@ -304,8 +301,7 @@
               <div class="pull-left">
                <a href="http://www.effortlesscity.com/" target="_new"><img class="ecitylogo" src="assets/img/ecity.png" /></a>
               </div>
-
-</div>
+          </div>
                 </div>
          
             </div> 
@@ -313,8 +309,23 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
+  </div>
     <!-- /.modal -->
-    <!-- End About -->     
+    <!-- End About -->   
+
+     <!-- Trucking Modal Window -->
+        <div class="modal fade" id="infoModal">
+           <div class="modal-dialog">
+
+                <div class="modal-body" id="infosmall" style="padding:0px;background-color: white;margin:10px 10px 10px 10px;border-radius: 3px;">
+                    <h3 id="marker_title" style="color:white;text-align:center"></h3>  
+                    <p id="marker_content" style="padding: 10px;"></p>
+                </div>
+ 
+             </div>
+           </div>  
+         </div>  
+
 
 <script src="assets/js/app.js"></script>
 
