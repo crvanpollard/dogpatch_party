@@ -3,11 +3,11 @@ var HUB = {
 	"features":
 	[
 	{"geometry": {"type": "Point", "coordinates": [-122.3911, 37.76075]},
-	"type": "Feature", "id": 0, "properties": {"ICON": "HUB_BLUE","Width":"44px","Height":"44px","CLASS":"marker2"}},
+	"type": "Feature", "id": 0, "properties": {"ICON": "HUB_BLUE","Width":"32px","Height":"32px","CLASS":"marker2a"}},
 	{"geometry": {"type": "Point", "coordinates": [-122.390718, 37.757621]},
 	"type": "Feature", "id": 1, "properties": {"ICON": "HUB_GREY","Width":"44px","Height":"44px","CLASS":"marker2"}},
 	{"geometry": {"type": "Point", "coordinates": [-122.389749, 37.7536]},
-	"type": "Feature", "id": 2, "properties": {"ICON": "HUB_RED","Width":"44px","Height":"44px","CLASS":"marker2"}},
+	"type": "Feature", "id": 2, "properties": {"ICON": "HUB_RED","Width":"32px","Height":"32px","CLASS":"marker2a"}},
 	{
   "geometry": {
     "coordinates": [
