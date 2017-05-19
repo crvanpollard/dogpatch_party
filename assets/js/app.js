@@ -11,7 +11,7 @@
   });
 
   $(document).on('hide.bs.modal','#aboutModal', function () {
-    setTimeout(goHome, 2000);
+    setTimeout(goHome, 2500);
   });
   // This will let you use the .remove() function later on
   if (!('remove' in Element.prototype)) {
@@ -38,7 +38,7 @@
     container: "map", 
     style: 'mapbox://styles/mapbox/dark-v9', 
   //style: 'mapbox://styles/crvanpollard/ciyd8fyqo008j2rqfku4qxcb9',
-    center: [ -122.389165,37.758524], 
+    center: [ -122.389165,37.756291], 
     bearing: 20, // Rotate Philly ~9° off of north, thanks Billy Penn.
     pitch: 50,
     zoom: 15,
@@ -52,7 +52,7 @@
      //   console.log(p);
         if (p > 0) {
           map.flyTo({
-            center: [-122.389165,37.758524],
+            center: [-122.389165,37.757],
             zoom: 15,
             speed: 0.1,
             bearing: -5,
@@ -258,7 +258,7 @@ document.getElementById('export').addEventListener('click', function () {
     // Fly to a random location by offsetting the point -74.50, 40
     // by up to 5 degrees.
     map.flyTo({
-      center: [-122.389165,37.760],
+      center: [-122.389165,37.757],
             zoom: 15,
             speed: 0.5,
             bearing: -5,
