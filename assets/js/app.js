@@ -54,7 +54,7 @@
           map.flyTo({
             center: [-122.389165,37.757],
             zoom: 15,
-            speed: 0.1,
+            speed: .03,
             bearing: -5,
             pitch: 15
           });
