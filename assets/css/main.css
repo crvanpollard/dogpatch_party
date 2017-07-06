@@ -250,6 +250,11 @@ color:#101010;
 .address_info{
   margin-left: 31px;
 }
+.swlogo{
+  width:220px;
+display: block;
+    margin: auto;
+}
 .dplogo{
   margin:0px 0px 20px 200px;
   height:70px;
@@ -269,6 +274,14 @@ margin:0px 0px 20px 80px;
   color:white;
   text-align: center;
 }
+.sfinfo{
+  text-align:left;
+  margin: 0px 30px 0px 30px;
+  font-size: 14px;
+}
+.dp_info2{
+  color:white;
+}
 #dpbutton{
   background-color:#ff6666;
   margin:50px 0px 0px 0px;
@@ -277,6 +290,38 @@ margin:0px 0px 20px 80px;
 .ecitylogo{
   margin:5px 0px 0px 0px;
   height:110px;
+}
+hr {
+  background-color:#66cccc; 
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #66cccc;
+    margin: 1em 0;
+    padding: 0; 
+}
+.infobus {
+width:50px;
+display: block;
+margin: auto;
+text-align: center;
+}
+.infotrain {
+width:85px;
+display: block;
+margin: -12px 0px 0px 100px;
+text-align: center;
+}
+.infocar {
+width:50px;
+display: block;
+margin: auto;
+text-align: center;
+}
+.infob1, .infob2, .infob3 {
+  width:30px;
+  display: block;
+  margin: auto;
 }
 @media (max-width: 1024px){
                  .listings .item .title {
